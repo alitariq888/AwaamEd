@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AwaamEd · What will school really cost?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F7F2;--card:#fff;--ink:#132422;--muted:#66706C;--line:#E3E6E0;--green:#1B5E4A;--green-soft:#E4EFEA;--amber:#B8741A;--amber-soft:#FBF1E0;--r:14px}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spacing:-.01em}
+button,select,input{font:inherit;color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 64px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.brand{font-family:Fraunces,serif;font-size:28px;font-weight:600;color:var(--green)}
+.brand small{display:block;font-family:Inter;font-size:13px;font-weight:500;color:var(--muted)}
+.pill{font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer}
+.pill.green{border-color:var(--green);color:var(--green)}.pill.green:hover{background:var(--green-soft)}
+.pill.amber{color:var(--amber);background:var(--amber-soft);border-color:transparent;cursor:default}
+
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.field{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px}
+.field label{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.field select,.field input{width:100%;border:0;background:transparent;font-size:17px;font-weight:500;padding:2px 0;outline:none;appearance:none;-webkit-appearance:none}
+.field select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2366706C' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right center;padding-right:18px}
+.field:focus-within{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.field .hint{font-size:12px;color:var(--muted);margin-top:3px}
+.money{display:flex;align-items:baseline;gap:6px}.money span{font-size:13px;color:var(--muted)}
+
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted)}
+.seg button.on{background:var(--green);color:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:26px 0 12px}
+.row h3{font-size:19px}
+
+.cards{margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;position:relative;display:flex;flex-direction:column;transition:border-color .2s;cursor:pointer}
+.card:hover{border-color:#B9C9C2}.card.best{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.card.sel{background:var(--green-soft)}
+.tag{position:absolute;top:12px;right:12px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:4px 8px;border-radius:999px}
+.card.sel .tag{background:#fff}
+.card h2{font-size:19px;padding-right:70px}
+.card .yrs{font-size:12px;color:var(--muted);min-height:36px}
+.card .tot{font-family:Fraunces,serif;font-size:30px;font-weight:600;margin-top:8px;line-height:1.1;font-variant-numeric:tabular-nums}
+.card .tot small{font-size:12px;font-family:Inter;font-weight:500;color:var(--muted);margin-left:4px}
+.card .mo{margin-top:4px;font-size:14px;color:var(--green);font-weight:500;min-height:22px}
+.card .mo b{font-family:Fraunces,serif;font-size:20px}
+.bar{height:7px;background:var(--line);border-radius:999px;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.card .sub{font-size:12px;color:var(--muted);margin-top:8px}
+
+section{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin-bottom:16px}
+section h3{font-size:18px}section .sub{font-size:13px;color:var(--muted);margin:2px 0 14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:500;cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.group{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:14px 0 6px;border-bottom:1px solid var(--line)}
+.line{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.line .lbl{font-size:15px}.line .lbl small{display:block;font-size:12px;color:var(--muted)}
+.line .src{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:999px;white-space:nowrap}
+.src.data{background:var(--green-soft);color:var(--green)}.src.est{background:var(--amber-soft);color:var(--amber)}.src.you{background:#E8E8F6;color:#4A4A9A}
+.line .amt{display:flex;align-items:center;gap:6px;justify-content:flex-end}
+.line input{width:110px;text-align:right;border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-variant-numeric:tabular-nums;background:#FAFAF7}
+.line input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.line input.edited{background:#F1F1FA;border-color:#B9B9E0}
+.line .unit{font-size:12px;color:var(--muted);width:78px}
+.line.total{border:0;padding-top:14px}.line.total .lbl{font-weight:600}.line.total .amt{font-weight:600;font-size:17px;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted);line-height:1.55}
+.reset{font-size:12px;color:var(--muted);background:none;border:0;cursor:pointer;text-decoration:underline;padding:0}
+details summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details summary::after{content:"+";font-size:20px;color:var(--muted)}details[open] summary::after{content:"–"}
+.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:10px}
+footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer a{color:var(--green)}
+@media (max-width:820px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}.line{grid-template-columns:1fr auto}.line .src{display:none}.card h2{padding-right:0}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">AwaamEd<small>What will school really cost, from now until university?</small></div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <span class="pill amber">Lahore · founder-collected data · 2026</span>
+      <button class="pill green" id="share">Copy link to this comparison</button>
+    </div>
+  </header>
+
+  <div class="grid g4">
+    <div class="field"><label for="city">City</label><select id="city"><option>Lahore</option></select><div class="hint">More cities as data is collected</div></div>
+    <div class="field"><label for="tier">Type of school</label><select id="tier">
+      <option value="elite">Elite private</option><option value="mid" selected>Mid-range private</option><option value="low">Low-fee private</option><option value="govt">Government</option></select></div>
+    <div class="field"><label for="dist">Distance from home to school</label><div class="money"><input id="dist" type="number" min="0" step="1" value="8"><span>km</span></div></div>
+    <div class="field"><label for="mode">How the student travels</label><select id="mode">
+      <option value="van">School van</option><option value="car">Own car / driver</option><option value="ride" selected>Ride-hailing (InDrive, Uber)</option><option value="rick">Rickshaw</option><option value="bike">Motorbike</option><option value="walk">Walk / cycle</option></select></div>
+  </div>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="field"><label for="tut">Subjects with private tuition</label><input id="tut" type="number" min="0" max="10" step="1" value="2"><div class="hint">Enter 0 if none</div></div>
+    <div class="field"><label for="income">Monthly household income</label><div class="money"><span>PKR</span><input id="income" type="number" min="0" step="5000" value="150000"></div><div class="hint">Only used to show cost as months of income</div></div>
+    <div class="field"><label>Show costs</label><div class="seg" id="view"><button data-v="month" class="on">Per month</button><button data-v="year">Per year</button><button data-v="total">Whole route</button></div></div>
+  </div>
+
+  <div class="row"><h3>Your four routes to university</h3><span class="note">Tap a route to see and change every number</span></div>
+  <div class="cards grid g4" id="cards"></div>
+
+  <section>
+    <div class="tabs" id="tabs"></div>
+    <div id="lines"></div>
+    <div class="legend"><span class="src data">Collected</span> from a real fee card or receipt &nbsp; <span class="src est">Estimate</span> to be verified &nbsp; <span class="src you">Yours</span> you changed it</div>
+  </section>
+
+  <section>
+    <details><summary>Settings and assumptions</summary>
+      <div class="grid g4" style="margin-top:14px">
+        <div class="field"><label for="usd">USD to PKR rate</label><input id="usd" type="number" step="1" value="280"><div class="hint">Cambridge and GED fees follow the dollar</div></div>
+        <div class="field"><label for="infl">Fee inflation per year (%)</label><input id="infl" type="number" step="0.5" min="0" value="12"></div>
+        <div class="field"><label for="opp">Income a student could earn instead (PKR/yr)</label><input id="opp" type="number" step="10000" min="0" value="0"><div class="hint">0 = ignore</div></div>
+        <div class="field"><label for="days">School days per year</label><input id="days" type="number" step="5" min="0" value="180"></div>
+      </div>
+      <p class="note" style="margin-top:14px">Whole-route cost adds each year's cost grown by inflation. Exam and registration fees are one-off and not inflated. Transport = distance × 2 trips × school days × the per-km rate of your mode (school van is a flat monthly fee). Tuition scholarships on O-Level or Matric grades can cut A-Level and FSc school fees; lower the fee line to reflect an offer.</p>
+    </details>
+  </section>
+
+  <footer>AwaamEd is an open-access, non-commercial project. Figures marked Collected come from actual fee cards, exam-board schedules and family interviews in Lahore, 2026; Estimates are flagged until verified. Republished yearly as the AwaamEd Education Inflation Report. Spotted a wrong number? <a href="#">Tell us</a>.</footer>
+</div>
+
+<script>
+/* ==================== DATA (edit here) ====================
+   Amounts in PKR unless usd:true. unit: month | year | once | subj_once (per subject, one-off)
+   src: data (collected) | est (estimate).  tier: values per school type.       */
+const TIER_NAMES={elite:"Elite private",mid:"Mid-range private",low:"Low-fee private",govt:"Government"};
+const TRANSPORT={van:{flat:9000,label:"School van (flat monthly)",src:"est"},car:{km:25,src:"est"},ride:{km:55,src:"est"},rick:{km:40,src:"est"},bike:{km:7,src:"est"},walk:{km:0,src:"data"}};
+const PATHWAYS=[
+ {id:"oa",name:"O-Levels + A-Levels at school",short:"O/A-Levels (school)",years:5,blurb:"3 yrs O-Level + 2 yrs A-Level, Cambridge exams",
+  items:[
+   {g:"School",k:"otu",l:"O-Level tuition",unit:"month",yrs:3,tier:{elite:35000,mid:18000,low:10000,govt:0},srcT:{elite:"data",mid:"est",low:"est",govt:"est"},note:"LGS JT 30–40k/month, 2026"},
+   {g:"School",k:"atu",l:"A-Level tuition",unit:"month",yrs:2,tier:{elite:65000,mid:30000,low:18000,govt:0},srcT:{elite:"data",mid:"est",low:"est",govt:"est"},note:"Scholarships on O-Level grades can reduce this"},
+   {g:"Exams",k:"oex",l:"O-Level exam fees",sub:"8 subjects × ~35,000, Cambridge via British Council",unit:"once",v:280000,src:"data"},
+   {g:"Exams",k:"aex",l:"A-Level exam fees",sub:"4 subjects × 2 sittings (AS + A2) × ~46,000",unit:"once",v:368000,src:"data",note:"British Council Pakistan 2026: 40–52k per subject per session, follows GBP"},
+   {g:"Tuition",k:"tut",l:"Private tuition per subject",unit:"month",yrs:5,v:27000,src:"data",tutor:true,note:"O-Level ~25k, A-Level higher"},
+   {g:"Getting there",k:"tr",l:"Transport",unit:"year",yrs:5,transport:true},
+   {g:"Other",k:"bk",l:"Books, stationery, uniform",unit:"year",yrs:5,v:40000,src:"est"},
+   {g:"Other",k:"ib",l:"IBCC equivalence certificate",unit:"once",v:8000,src:"data"}]},
+ {id:"op",name:"O-Levels at school, A-Levels privately",short:"O/A-Levels (private A)",years:5,blurb:"Sit A-Levels as a private candidate through an academy",
+  items:[
+   {g:"School",k:"otu",l:"O-Level tuition",unit:"month",yrs:3,tier:{elite:35000,mid:18000,low:10000,govt:0},srcT:{elite:"data",mid:"est",low:"est",govt:"est"}},
+   {g:"School",k:"aac",l:"A-Level academy (private candidate)",sub:"Replaces school fee",unit:"month",yrs:2,v:30000,src:"data"},
+   {g:"Exams",k:"oex",l:"O-Level exam fees",sub:"8 subjects × ~35,000",unit:"once",v:280000,src:"data"},
+   {g:"Exams",k:"aex",l:"A-Level exam fees",sub:"4 subjects × 2 sittings (AS + A2) × ~46,000, private candidate",unit:"once",v:368000,src:"data",note:"British Council Pakistan 2026: 40–52k per subject per session"},
+   {g:"Tuition",k:"tut",l:"Private tuition per subject",unit:"month",yrs:5,v:27000,src:"data",tutor:true},
+   {g:"Getting there",k:"tr",l:"Transport",unit:"year",yrs:5,transport:true},
+   {g:"Other",k:"bk",l:"Books, stationery, uniform",unit:"year",yrs:5,v:35000,src:"est"},
+   {g:"Other",k:"ib",l:"IBCC equivalence certificate",unit:"once",v:8000,src:"data"}]},
+ {id:"mf",name:"Matric + FSc",short:"Matric / FSc",years:4,blurb:"2 yrs Matric + 2 yrs FSc/FA, Punjab board exams",
+  items:[
+   {g:"School",k:"mtu",l:"Matric school fee",unit:"month",yrs:2,tier:{elite:25000,mid:8000,low:4000,govt:300},srcT:{elite:"est",mid:"data",low:"est",govt:"est"},note:"Punjab School ~8k/month"},
+   {g:"School",k:"ftu",l:"FSc college fee",unit:"year",yrs:2,tier:{elite:400000,mid:100000,low:50000,govt:181000},srcT:{elite:"est",mid:"data",low:"est",govt:"data"},note:"KIPS ~100k/yr; Kinnaird 199,050 + 163,730 (kinnaird.edu.pk 2026-27). Matric-grade scholarships apply"},
+   {g:"Exams",k:"mex",l:"Matric board exam fees",sub:"BISE Lahore, both years",unit:"once",v:5000,src:"est"},
+   {g:"Exams",k:"fex",l:"FSc board exam fees",sub:"BISE Lahore, both parts",unit:"once",v:6000,src:"est"},
+   {g:"Tuition",k:"tut",l:"Private tuition per subject",unit:"month",yrs:4,v:5000,src:"data",tutor:true},
+   {g:"Getting there",k:"tr",l:"Transport",unit:"year",yrs:4,transport:true},
+   {g:"Other",k:"bk",l:"Books, stationery, uniform",unit:"year",yrs:4,v:15000,src:"est"}]},
+ {id:"ged",name:"GED",short:"GED",years:1,blurb:"Four tests, 6–12 months, IBCC equivalence via digital transcript",
+  items:[
+   {g:"Preparation",k:"prep",l:"Prep centre lectures",sub:"Enter 0 for self-study",unit:"once",v:200000,src:"data"},
+   {g:"Preparation",k:"reg",l:"Registration",unit:"once",v:50000,src:"data"},
+   {g:"Exams",k:"gex",l:"Exam fee",sub:"4 papers × USD 90",unit:"once",v:360,usd:true,src:"data"},
+   {g:"Exams",k:"tsc",l:"Printed transcript & diploma",sub:"USD 140 — optional, digital copies now accepted",unit:"once",v:0,usd:true,src:"data"},
+   {g:"Tuition",k:"tut",l:"Private tuition per subject",unit:"month",yrs:1,v:0,src:"data",tutor:true,note:"Usually covered by prep centre"},
+   {g:"Getting there",k:"tr",l:"Transport",sub:"Halved: prep is part-time",unit:"year",yrs:1,transport:true,factor:.5},
+   {g:"Other",k:"bk",l:"Books and practice tests",unit:"year",yrs:1,v:15000,src:"est"},
+   {g:"Other",k:"ib",l:"IBCC equivalence certificate",unit:"once",v:8000,src:"data"}]},
+];
+/* ========================================================== */
+
+const $=s=>document.querySelector(s), fmt=n=>Math.round(n).toLocaleString("en-PK");
+const S={view:"month",sel:"oa",over:{}};   // over[pathway.k] = user override
+
+function ctx(){return{tier:$("#tier").value,dist:+$("#dist").value||0,mode:$("#mode").value,tut:+$("#tut").value||0,income:+$("#income").value||0,usd:+$("#usd").value||280,infl:(+$("#infl").value||0)/100,opp:+$("#opp").value||0,days:+$("#days").value||0}}
+
+function baseValue(it,c){          // default amount in the item's own unit and currency
+  if(it.transport){const t=TRANSPORT[c.mode];const yr=t.flat!==undefined?t.flat*12:c.dist*2*c.days*t.km;return yr*(it.factor||1)}
+  if(it.tier) return it.tier[c.tier];
+  return it.v;
+}
+function srcOf(it,c){if(it.transport)return TRANSPORT[c.mode].src;if(it.srcT)return it.srcT[c.tier];return it.src||"est"}
+function value(p,it,c){const key=p.id+"."+it.k;return key in S.over?S.over[key]:baseValue(it,c)}
+
+function annualPKR(p,it,c,v){       // yearly cost in PKR across whole route, split into inflating(yearly) vs once
+  let pk=it.usd?v*c.usd:v;
+  if(it.tutor) pk*=c.tut;
+  if(it.unit==="month") return{yearly:pk*12,yrs:it.yrs};
+  if(it.unit==="year") return{yearly:pk,yrs:it.yrs};
+  return{once:pk};
+}
+function compute(p,c){
+  let once=0, recurring=[];
+  for(const it of p.items){const a=annualPKR(p,it,c,value(p,it,c)); if(a.once!==undefined) once+=a.once; else recurring.push(a);}
+  const perYearNow=recurring.reduce((s,r)=>s+r.yearly*r.yrs,0)/p.years;
+  const infl=recurring.reduce((s,r)=>s+(c.infl>0?r.yearly*((1+c.infl)**r.yrs-1)/c.infl:r.yearly*r.yrs),0);
+  const opp=c.opp*p.years;
+  const total=infl+once+opp;
+  return{perYearNow,once,total,opp,perMonth:total/(p.years*12),perYear:total/p.years};
+}
+
+function render(){
+  const c=ctx();
+  const R=PATHWAYS.map(p=>({p,r:compute(p,c)}));
+  const best=Math.min(...R.map(x=>x.r.total)), max=Math.max(...R.map(x=>x.r.total))||1;
+  $("#cards").innerHTML=R.map(({p,r})=>{
+    const show=S.view==="month"?r.perMonth:S.view==="year"?r.perYear:r.total;
+    const lbl=S.view==="month"?"per month":S.view==="year"?"per year":"whole route";
+    const mo=c.income>0?r.total/c.income:null;
+    return`<div class="card ${r.total===best?"best":""} ${S.sel===p.id?"sel":""}" data-id="${p.id}">
+      ${r.total===best?`<span class="tag">Lowest</span>`:""}
+      <h2>${p.short}</h2><div class="yrs">${p.years} year${p.years>1?"s":""} · ${p.blurb}</div>
+      <div class="tot">${fmt(show)}<small>PKR ${lbl}</small></div>
+      <div class="mo">${mo!==null?`<b>${mo.toFixed(1)}</b> months of your income in total`:""}</div>
+      <div class="bar"><i style="width:${Math.max(4,r.total/max*100)}%"></i></div>
+      <div class="sub">${fmt(r.total)} over ${p.years} yr${p.years>1?"s":""}${r.opp?` · incl. ${fmt(r.opp)} forgone income`:""}</div></div>`}).join("");
+  document.querySelectorAll(".card").forEach(el=>el.onclick=()=>{S.sel=el.dataset.id;render()});
+
+  $("#tabs").innerHTML=PATHWAYS.map(p=>`<button class="${S.sel===p.id?"on":""}" data-id="${p.id}">${p.short}</button>`).join("");
+  document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{S.sel=b.dataset.id;render()});
+
+  const p=PATHWAYS.find(x=>x.id===S.sel), r=compute(p,c);
+  let h=`<h3>${p.name}</h3><div class="sub">${TIER_NAMES[c.tier]} · ${c.dist} km by ${$("#mode").selectedOptions[0].text.toLowerCase()} · ${c.tut} tuition subject${c.tut===1?"":"s"} &nbsp; <button class="reset" id="reset">Reset my changes</button></div>`;
+  let g="";
+  for(const it of p.items){
+    if(it.g!==g){g=it.g;h+=`<div class="group">${g}</div>`}
+    const key=p.id+"."+it.k, edited=key in S.over, v=value(p,it,c), src=edited?"you":srcOf(it,c);
+    const unit=(it.usd?"USD ":"PKR ")+({month:"/ month",year:"/ year",once:"one-off"})[it.unit]+(it.tutor?" × "+c.tut:"");
+    const a=annualPKR(p,it,c,v), rt=a.once!==undefined?a.once:a.yearly*a.yrs;
+    h+=`<div class="line"><div class="lbl">${it.l}${it.sub||it.note?`<small>${it.sub||""}${it.sub&&it.note?" · ":""}${it.note||""}</small>`:""}</div>
+      <span class="src ${src}">${src==="data"?"Collected":src==="est"?"Estimate":"Yours"}</span>
+      <div class="amt"><input type="number" min="0" data-key="${key}" value="${Math.round(v)}" class="${edited?"edited":""}"><span class="unit">${unit}<br><span style="font-size:11px">= ${fmt(rt)} route</span></span></div></div>`;
+  }
+  if(c.opp) h+=`<div class="line"><div class="lbl">Income given up while studying<small>${fmt(c.opp)} × ${p.years} years</small></div><span class="src est">Setting</span><div class="amt"><span class="unit" style="width:auto">= ${fmt(r.opp)} route</span></div></div>`;
+  h+=`<div class="line total"><div class="lbl">Whole route, with ${(c.infl*100).toFixed(1)}% yearly inflation</div><span></span><div class="amt">PKR ${fmt(r.total)}</div></div>
+      <div class="line total" style="padding-top:0"><div class="lbl" style="font-weight:400;color:var(--muted)">That is about</div><span></span><div class="amt" style="font-weight:500">PKR ${fmt(r.perMonth)} / month</div></div>`;
+  $("#lines").innerHTML=h;
+  document.querySelectorAll("#lines input").forEach(i=>i.addEventListener("change",e=>{S.over[e.target.dataset.key]=+e.target.value||0;render()}));
+  $("#reset").onclick=()=>{for(const k in S.over) if(k.startsWith(p.id+".")) delete S.over[k];render()};
+  writeHash();
+}
+
+/* view toggle */
+document.querySelectorAll("#view button").forEach(b=>b.onclick=()=>{S.view=b.dataset.v;document.querySelectorAll("#view button").forEach(x=>x.classList.toggle("on",x===b));render()});
+["#tier","#dist","#mode","#tut","#income","#usd","#infl","#opp","#days"].forEach(s=>$(s).addEventListener("input",render));
+
+/* share links */
+function writeHash(){const h=new URLSearchParams({tier:$("#tier").value,dist:$("#dist").value,mode:$("#mode").value,tut:$("#tut").value,income:$("#income").value,view:S.view});try{history.replaceState(null,"","#"+h)}catch(e){}}
+(function readHash(){const h=new URLSearchParams(location.hash.slice(1));for(const k of["tier","dist","mode","tut","income"]) if(h.get(k)!==null) $("#"+k).value=h.get(k);
+  if(h.get("view")){S.view=h.get("view");document.querySelectorAll("#view button").forEach(x=>x.classList.toggle("on",x.dataset.v===S.view))}})();
+$("#share").onclick=async()=>{writeHash();try{await navigator.clipboard.writeText(location.href);$("#share").textContent="Link copied"}catch{prompt("Copy this link:",location.href)}setTimeout(()=>$("#share").textContent="Copy link to this comparison",2000)};
+render();
+</script>
+</body>
+</html>
