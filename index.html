@@ -77,6 +77,27 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 @media (max-width:820px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}.line{grid-template-columns:1fr auto}.line .src{display:none}.card h2{padding-right:0}}
 @media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+.pagetabs{margin:22px 0 18px}
+.split{display:flex;height:34px;border-radius:10px;overflow:hidden;margin-top:10px}
+.split div{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.split .ess{background:#8A9791}.split .rest{background:var(--green)}
+.blz{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.blz:last-child{border-bottom:0}
+.blz .nm{flex:1;font-size:15px;font-weight:500}
+.blz .nm small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.blz .amt2{font-variant-numeric:tabular-nums;font-size:15px;text-align:right;min-width:110px}
+.badge{font-size:11px;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap;min-width:118px;text-align:center}
+.badge.ok{background:var(--green-soft);color:var(--green)}
+.badge.tight{background:#FBF1E0;color:#B8741A}
+.badge.stretch{background:#FBE4E0;color:#B84A1A}
+.badge.no{background:#F1E0E0;color:#8A2E2E}
+@media print{
+  header .pill,#share,.pagetabs,.seg,.tabs,#reset,.field .hint,details summary::after{display:none !important}
+  body{background:#fff}
+  section,.field,.card{border:1px solid #ccc !important;box-shadow:none !important}
+  a[href]:after{content:""}
+}
 </style>
 </head>
 <body>
@@ -88,6 +109,11 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
       <button class="pill green" id="share">Copy link to this comparison</button>
     </div>
   </header>
+
+  <div class="pagetabs seg" id="pageTabs">
+    <button data-p="calc" class="on">Cost calculator</button>
+    <button data-p="budget">Family budget planner</button>
+  </div>
 
   <div class="grid g4">
     <div class="field"><label for="city">City</label><select id="city"><option>Lahore</option></select><div class="hint">More cities as data is collected</div></div>
@@ -103,6 +129,7 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
     <div class="field"><label>Show costs</label><div class="seg" id="view"><button data-v="month" class="on">Per month</button><button data-v="year">Per year</button><button data-v="total">Whole route</button></div></div>
   </div>
 
+  <div id="calcView">
   <div class="row"><h3>Your four routes to university</h3><span class="note">Tap a route to see and change every number</span></div>
   <div class="cards grid g4" id="cards"></div>
 
@@ -111,6 +138,42 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
     <div id="lines"></div>
     <div class="legend"><span class="src data">Collected</span> from a real fee card or receipt &nbsp; <span class="src est">Estimate</span> to be verified &nbsp; <span class="src you">Yours</span> you changed it</div>
   </section>
+  </div>
+
+  <div id="budgetView" style="display:none">
+  <div class="row"><h3>Your family budget blueprint</h3><span class="note">Based on your income and the selections above</span></div>
+
+  <div class="grid g3">
+    <div class="field"><label for="essPct">Typical spending on rent, food & essentials</label>
+      <div class="money"><input id="essPct" type="number" min="0" max="95" step="1" value="60"><span>% of income</span></div>
+      <div class="hint" id="essHint">A common guideline for this income level — adjust to your household</div></div>
+    <div class="field"><label for="yearsUntil">Years until this route begins</label><input id="yearsUntil" type="number" min="0" max="15" step="1" value="0"><div class="hint">0 if the student is already in it</div></div>
+    <div class="field"><label>Print or save this blueprint</label><button class="pill green" id="printBtn" style="width:100%;margin-top:2px">Print / save as PDF</button></div>
+  </div>
+
+  <section>
+    <h3>Where your income goes</h3>
+    <div class="sub">Monthly household income: PKR <span id="incLbl"></span></div>
+    <div class="split" id="splitBar"></div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px">
+      <span>Essentials — PKR <span id="essAmt"></span></span>
+      <span>Left for education, saving, everything else — PKR <span id="restAmt"></span></span>
+    </div>
+  </section>
+
+  <section>
+    <h3>Which route fits your budget</h3>
+    <div class="sub">Comfortable = under 20% of income · Tight = 20–35% · Stretch = 35–50% · Not feasible = over 50%, without other income or savings</div>
+    <div id="budgetRows"></div>
+  </section>
+
+  <section>
+    <h3>Monthly saving needed, starting now</h3>
+    <div class="sub" id="saveSub"></div>
+    <div id="saveRows"></div>
+    <p class="note" style="margin-top:12px">This is a general planning guide, not financial advice — it doesn't account for existing savings, loans, or scholarships. Speak with a financial advisor for a plan specific to your situation.</p>
+  </section>
+  </div>
 
   <section>
     <details><summary>Settings and assumptions</summary>
@@ -206,6 +269,66 @@ function compute(p,c){
   return{perYearNow,once,total,opp,perMonth:total/(p.years*12),perYear:total/p.years};
 }
 
+/* ---------- Family budget planner ---------- */
+function defaultEssentials(income){
+  if(income<=75000) return 70;
+  if(income<=150000) return 60;
+  if(income<=300000) return 50;
+  return 40;
+}
+function badgeFor(pct){
+  if(pct<=20) return{cls:"ok",lbl:"Comfortable"};
+  if(pct<=35) return{cls:"tight",lbl:"Tight"};
+  if(pct<=50) return{cls:"stretch",lbl:"Stretch"};
+  return{cls:"no",lbl:"Not feasible"};
+}
+let essTouched=false;
+function renderBudget(){
+  const c=ctx();
+  const income=c.income;
+  if(!essTouched) $("#essPct").value=defaultEssentials(income);
+  const essPct=Math.max(0,Math.min(95,+$("#essPct").value||0));
+  const essAmt=income*essPct/100, restAmt=income-essAmt;
+  $("#incLbl").textContent=fmt(income);
+  $("#essAmt").textContent=fmt(essAmt);
+  $("#restAmt").textContent=fmt(restAmt);
+  $("#essHint").textContent=income>0?`Typical for households near PKR ${fmt(income)}/month — adjust to your household`:"Enter your income above to see a suggested split";
+  $("#splitBar").innerHTML=`<div class="ess" style="width:${essPct}%">${essPct}%</div><div class="rest" style="width:${100-essPct}%">${100-essPct}%</div>`;
+
+  const R=PATHWAYS.map(p=>({p,r:compute(p,c)}));
+  $("#budgetRows").innerHTML=R.map(({p,r})=>{
+    const pct=income>0?r.perMonth/income*100:0;
+    const b=income>0?badgeFor(pct):{cls:"tight",lbl:"Enter income"};
+    return`<div class="blz"><div class="nm">${p.short}<small>${fmt(r.perMonth)} / month · ${p.years} year route</small></div>
+      <div class="amt2">${income>0?pct.toFixed(0)+"% of income":"–"}</div>
+      <span class="badge ${b.cls}">${b.lbl}</span></div>`;
+  }).join("");
+
+  const yrsUntil=Math.max(0,+$("#yearsUntil").value||0);
+  $("#saveSub").textContent=yrsUntil>0
+    ?`If you start saving today, ${yrsUntil} year${yrsUntil===1?"":"s"} before this route begins, spread evenly until it finishes:`
+    :`The student is already in this route — saving now covers only what's left of it:`;
+  $("#saveRows").innerHTML=R.map(({p,r})=>{
+    const months=yrsUntil*12+p.years*12;
+    const perMonthSave=r.total/months;
+    const shareOfRest=restAmt>0?perMonthSave/restAmt*100:null;
+    return`<div class="blz"><div class="nm">${p.short}<small>${fmt(r.total)} total over ${yrsUntil?yrsUntil+" yrs saving + ":""}${p.years} yrs route</small></div>
+      <div class="amt2">${fmt(perMonthSave)} / mo</div>
+      <span class="badge ${shareOfRest===null?"tight":shareOfRest<=100?"ok":"no"}">${shareOfRest===null?"–":shareOfRest.toFixed(0)+"% of spare income"}</span></div>`;
+  }).join("");
+}
+$("#essPct").addEventListener("input",()=>{essTouched=true;renderBudget()});
+$("#yearsUntil").addEventListener("input",renderBudget);
+$("#printBtn").addEventListener("click",()=>window.print());
+
+document.querySelectorAll("#pageTabs button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("#pageTabs button").forEach(x=>x.classList.toggle("on",x===b));
+  const budget=b.dataset.p==="budget";
+  $("#calcView").style.display=budget?"none":"block";
+  $("#budgetView").style.display=budget?"block":"none";
+  if(budget) renderBudget();
+}));
+
 function render(){
   const c=ctx();
   const R=PATHWAYS.map(p=>({p,r:compute(p,c)}));
@@ -249,7 +372,7 @@ function render(){
 
 /* view toggle */
 document.querySelectorAll("#view button").forEach(b=>b.onclick=()=>{S.view=b.dataset.v;document.querySelectorAll("#view button").forEach(x=>x.classList.toggle("on",x===b));render()});
-["#tier","#dist","#mode","#tut","#income","#usd","#infl","#opp","#days"].forEach(s=>$(s).addEventListener("input",render));
+["#tier","#dist","#mode","#tut","#income","#usd","#infl","#opp","#days"].forEach(s=>$(s).addEventListener("input",()=>{render();if($("#budgetView").style.display!=="none") renderBudget();}));
 
 /* share links */
 function writeHash(){const h=new URLSearchParams({tier:$("#tier").value,dist:$("#dist").value,mode:$("#mode").value,tut:$("#tut").value,income:$("#income").value,view:S.view});try{history.replaceState(null,"","#"+h)}catch(e){}}
