@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AwaamEd · What will school really cost?</title>
+<title>AwaamEd · Pathway Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -14,6 +14,14 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spac
 button,select,input{font:inherit;color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 64px}
 .toolhead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.libhero{background:var(--ink);padding:48px 0 42px;margin-bottom:8px}
+.libhero .eyebrow{color:#8FCBA8}
+.libhero h1{color:#fff}
+.libhero .lead{color:#B9C4BF}
+.wrap{counter-reset:profile}
+.picon{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-right:2px}
+.icn{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
+.picon .icn{width:18px;height:18px;stroke:var(--green)}
 .brand{font-family:Fraunces,serif;font-size:28px;font-weight:600;color:var(--green)}
 .brand small{display:block;font-family:Inter;font-size:13px;font-weight:500;color:var(--muted)}
 .pill{font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer}
@@ -141,17 +149,7 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 @media (max-width:760px){.footwrap{grid-template-columns:1fr}}
 
 /* ---------- Homepage ---------- */
-.hero{padding:56px 0 12px;background:linear-gradient(180deg,#E9F2EC 0%,var(--bg) 100%)}
-.herogrid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
-.heroart{display:flex;justify-content:center}
-.heroart svg{width:100%;max-width:380px;height:auto}
-@media (max-width:900px){.herogrid{grid-template-columns:1fr}.heroart{order:-1;margin-bottom:8px}.heroart svg{max-width:260px}}
-
-.icn{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
-.statIcn{width:26px;height:26px;margin-bottom:10px;opacity:.85}
-.iwrap{width:44px;height:44px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center}
-.tools{background:var(--green-soft)}
-.founder{background:var(--green-soft)}
+.hero{padding:56px 0 12px}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
 .hero h1{font-size:44px;line-height:1.1;max-width:800px}
 .lead{font-size:18px;color:var(--muted);max-width:620px;margin-top:18px;line-height:1.6}
@@ -173,8 +171,7 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 .toolgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .toolcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s}
 .toolcard:hover{border-color:var(--green);transform:translateY(-2px)}
-.ti{width:40px;height:40px;border-radius:10px;background:var(--green-soft);color:var(--green);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.ti .icn{width:21px;height:21px}
+.ti{width:34px;height:34px;border-radius:10px;background:var(--green-soft);color:var(--green);font-family:Fraunces,serif;font-weight:600;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:15px}
 .toolcard h3{font-size:19px;margin-bottom:9px}
 .toolcard p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px;min-height:66px}
 .tarrow{font-size:13px;font-weight:600;color:var(--green)}
@@ -220,7 +217,7 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
   <div class="navwrap">
     <a class="brand" href="index.html" style="text-decoration:none">AwaamEd</a>
     <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="calculator.html">Cost Calculator</a>
       <a href="library.html">Pathway Library</a>
       <a href="scholarships.html">Scholarships &amp; Aid</a>
@@ -228,129 +225,130 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
     </nav>
   </div>
 </header>
-<section class="hero">
+<div class="libhero">
   <div class="wrap">
-    <div class="herogrid">
-    <div>
-    <div class="eyebrow">Open-access education planning &middot; Pakistan</div>
-    <h1>What will school really cost, from now until university?</h1>
-    <p class="lead">Most families compare this month's tuition fee. AwaamEd compares the whole route &mdash; tuition, exam fees, transport, private tutoring, and the years it takes &mdash; across O/A-Levels, Matric/FSc, and the GED, so a decision that shapes five years gets made with five years of numbers.</p>
-    <div class="herobtns">
-      <a class="btn primary" href="calculator.html">Compare pathway costs &rarr;</a>
-      <a class="btn ghost" href="library.html">Explore the pathways</a>
-    </div>
-    </div>
-    <div class="heroart">
-      <svg viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="240" cy="210" r="190" fill="#E4EFEA"/>
-        <path d="M60 330 C 130 330, 150 260, 230 210" stroke="#9FC4AF" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14" fill="none"/>
-        <path d="M90 120 C 140 150, 170 170, 230 200" stroke="#5C9179" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14" fill="none"/>
-        <path d="M70 220 C 130 220, 170 215, 232 208" stroke="#1B5E4A" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14" fill="none"/>
-        <circle cx="60" cy="330" r="9" fill="#9FC4AF"/>
-        <circle cx="90" cy="120" r="9" fill="#5C9179"/>
-        <circle cx="70" cy="220" r="9" fill="#1B5E4A"/>
-        <circle cx="240" cy="205" r="34" fill="#FFFFFF" stroke="#1B5E4A" stroke-width="2.5"/>
-        <g transform="translate(216,188)">
-          <path d="M24 6 44 15 24 24 4 15Z" fill="#1B5E4A"/>
-          <path d="M12 19.5V29c0 3.2 5.4 6 12 6s12-2.8 12-6v-9.5" stroke="#1B5E4A" stroke-width="2.3" fill="none" stroke-linecap="round"/>
-          <path d="M44 15V25" stroke="#1B5E4A" stroke-width="2.3" stroke-linecap="round"/>
-        </g>
-        <g transform="translate(120,300)">
-          <rect x="0" y="0" width="54" height="30" rx="8" fill="#FFFFFF" stroke="#B8741A" stroke-width="1.8"/>
-          <text x="27" y="20" font-family="Fraunces, serif" font-weight="600" font-size="13" fill="#B8741A" text-anchor="middle">PKR</text>
-        </g>
-        <g transform="translate(300,120)">
-          <circle cx="16" cy="16" r="16" fill="#FFFFFF" stroke="#1B5E4A" stroke-width="1.8"/>
-          <polyline points="16,8 16,16 21,19" stroke="#1B5E4A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-      </svg>
-    </div>
-    </div>
+  <div class="eyebrow">Pathway Library</div>
+  <h1 style="font-size:34px;max-width:720px">Roadmaps for every route</h1>
+  <p class="lead" style="font-size:16px;margin-top:12px">What each pathway actually involves &mdash; how it works, how it's recognised for university admission, and what families most often get caught out by. Tap a route to open it.</p>
   </div>
-</section>
+</div>
 
-<section class="problem">
-  <div class="wrap">
-    <h2 class="sech">Why this exists</h2>
-    <div class="pgrid">
-      <div><div class="pnum">01</div><h3>Fees are quoted monthly, decisions last for years</h3><p>Families rarely see the full multi-year total before choosing a pathway &mdash; and by the time it's visible, the choice has usually already been made.</p></div>
-      <div><div class="pnum">02</div><h3>The real costs stay hidden until they're due</h3><p>Private tutoring, transport, exam fees billed in US dollars, equivalence certificates &mdash; none of it shows up on the first fee card a family sees.</p></div>
-      <div><div class="pnum">03</div><h3>Comparisons run on reputation, not numbers</h3><p>O-Levels, Matric, GED &mdash; the choice between them is usually word-of-mouth. AwaamEd puts real, sourced figures next to each other instead.</p></div>
+<div class="wrap" style="padding-top:28px">
+    <details class="profile" open>
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><path d="M6 2.5h9l3.5 3.5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M15 2.5V6h3.5"/><line x1="7.5" y1="12" x2="15.5" y2="12"/><line x1="7.5" y1="15.5" x2="15.5" y2="15.5"/></svg></span><div class="ph"><h3>GED</h3><div class="pt">Fast, flexible — but the equivalence rules have a catch</div></div></summary>
+    <div class="body">
+      <div><span class="chip">Self-paced</span><span class="chip">6–12 months</span><span class="chip">4 tests</span><span class="chip warn">Two-year rule applies to some</span></div>
+      <h4>What it is</h4>
+      <p>A US-based high-school-equivalency exam covering four subjects &mdash; language arts, math, science, and social studies &mdash; taken at an approved computer-based test centre. There's no attendance requirement and no fixed timetable.</p>
+      <h4>Who it suits</h4>
+      <p>Students who've had a gap in schooling, want a shorter route to university than Matric/FSc or O/A-Levels, or didn't fit well into either exam-board system.</p>
+      <h4>How it works</h4>
+      <ul>
+        <li>Register an account with GED Testing Service and choose self-study or a prep centre.</li>
+        <li>Sit all four subject tests &mdash; they can be taken separately and retaken individually.</li>
+        <li>Once you pass all four, apply to IBCC for HSSC (Humanities) equivalence using your GED e-Transcript and e-Diploma &mdash; printed copies are no longer required as of July 2026.</li>
+      </ul>
+      <div class="callout"><b>The rule most guides leave out:</b> if you already completed Matric/SSC and want to use the GED for admission to a <i>Pakistani</i> university, IBCC requires a two-year gap between your SSC and your GED before issuing the equivalence certificate. This gap does not apply if you never completed SSC, or if you're applying to a university abroad.</div>
+      <h4>Recognition</h4>
+      <p>IBCC treats a completed GED as equivalent to HSSC (Humanities group). A number of Pakistani universities accept GED holders for undergraduate admission, including some in the public sector, though each sets its own additional requirements &mdash; an entry test, SAT, or interview &mdash; and medical/dental programmes generally aren't open to GED alone. Always confirm directly with your target university rather than assuming acceptance.</p>
+      <a class="linkbtn" href="calculator.html?path=ged">See the real cost of this route →</a>
+      <div class="src">Sources: GED Testing Service, official Pakistan policy page (ged.com/en/policies/pakistan.html) &middot; IBCC equivalence guidance</div>
     </div>
-  </div>
-</section>
+  </details>
 
-<section class="tools">
-  <div class="wrap">
-    <h2 class="sech">What AwaamEd does</h2>
-    <div class="toolgrid">
-      <a class="toolcard" href="calculator.html">
-        <div class="ti"><svg class="icn" viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2.2"/><line x1="7" y1="6.5" x2="17" y2="6.5"/><circle cx="7.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="7.5" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="14.5" r="1" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Cost Calculator</h3>
-        <p>Compare four real pathways side by side &mdash; every fee editable, every number sourced or clearly flagged as an estimate.</p>
-        <span class="tarrow">Open the calculator &rarr;</span>
-      </a>
-      <a class="toolcard" href="calculator.html">
-        <div class="ti"><svg class="icn" viewBox="0 0 24 24"><ellipse cx="12" cy="15" rx="3.6" ry="2.2"/><ellipse cx="12" cy="11.5" rx="5" ry="3"/><ellipse cx="12" cy="8" rx="6.4" ry="3.8"/></svg></div>
-        <h3>Family Budget Planner</h3>
-        <p>Turn the comparison into a monthly plan &mdash; what share of income each route takes, and how much to save starting today.</p>
-        <span class="tarrow">Plan your budget &rarr;</span>
-      </a>
-      <a class="toolcard" href="library.html">
-        <div class="ti"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5.5c-1.6-1.2-4-1.6-6.5-1.2v13.4c2.5-.4 4.9 0 6.5 1.2 1.6-1.2 4-1.6 6.5-1.2V4.3c-2.5-.4-4.9 0-6.5 1.2Z"/><line x1="12" y1="5.5" x2="12" y2="18.9"/></svg></div>
-        <h3>Pathway Library</h3>
-        <p>Roadmaps for every route &mdash; how each one works, how it's recognised for admission, and what families get caught out by.</p>
-        <span class="tarrow">Read the roadmaps &rarr;</span>
-      </a>
+  <details class="profile">
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><path d="M12 3 22 8l-10 5L2 8Z"/><path d="M6 10.3V15c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.7"/><path d="M22 8v6.5"/></svg></span><div class="ph"><h3>O/A-Levels &mdash; through a school</h3><div class="pt">The familiar route, taught and entered by your school</div></div></summary>
+    <div class="body">
+      <div><span class="chip">5 years</span><span class="chip">Cambridge / Edexcel / Oxford AQA</span></div>
+      <h4>What it is</h4>
+      <p>A two-tier UK international qualification &mdash; O-Level over roughly three years, then A-Level over two &mdash; assessed by one of three exam boards active in Pakistan: Cambridge International (CAIE, the most common), Pearson Edexcel, or Oxford AQA.</p>
+      <h4>How it works</h4>
+      <ul>
+        <li>Enrol at a school that teaches the syllabus and enters students for the exam.</li>
+        <li>The school registers you through the exam board; you sit papers on the board's official schedule.</li>
+        <li>Subject choice at O-Level shapes what's available at A-Level, and A-Level subject choice shapes degree options &mdash; worth planning a year ahead rather than deciding subject-by-subject.</li>
+      </ul>
+      <h4>Recognition</h4>
+      <p>Universally recognised by Pakistani and international universities; IBCC equivalence is usually processed alongside the university application rather than as a separate early step.</p>
+      <a class="linkbtn" href="calculator.html?path=oa">See the real cost of this route →</a>
+      <div class="src">Source: British Council Pakistan, international school qualifications guidance</div>
     </div>
-  </div>
-</section>
+  </details>
 
-<section class="stats">
-  <div class="wrap">
-    <h2 class="sech">Where the project stands</h2>
-    <div class="statgrid">
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><path d="M12 3 22 8l-10 5L2 8Z"/><path d="M6 10.3V15c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.7"/></svg><div class="statnum">4</div><div class="statlbl">pathways compared side by side</div></div>
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><path d="M6 2.5h9l3.5 3.5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M15 2.5V6h3.5"/><line x1="7.5" y1="12" x2="15.5" y2="12"/><line x1="7.5" y1="15.5" x2="15.5" y2="15.5"/></svg><div class="statnum">30+</div><div class="statlbl">sourced fee figures, dated and tagged</div></div>
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><path d="M12 21.5S4.5 14.8 4.5 9.3A7.5 7.5 0 0 1 12 2a7.5 7.5 0 0 1 7.5 7.3c0 5.5-7.5 12.2-7.5 12.2Z"/><circle cx="12" cy="9.3" r="2.6"/></svg><div class="statnum">1</div><div class="statlbl">city live today &mdash; Lahore, more underway</div></div>
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="1.5"/><path d="M8 10.5V7a4 4 0 0 1 6.5-3.1"/><circle cx="12" cy="15" r="1.4" fill="currentColor" stroke="none"/></svg><div class="statnum">Free</div><div class="statlbl">open access &mdash; no login, no data collected</div></div>
+  <details class="profile">
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="1.5"/><path d="M8 10.5V7a4 4 0 0 1 6.5-3.1"/><circle cx="12" cy="15" r="1.4" fill="currentColor" stroke="none"/></svg></span><div class="ph"><h3>O/A-Levels &mdash; as a private candidate</h3><div class="pt">Same certificate, no school required</div></div></summary>
+    <div class="body">
+      <div><span class="chip">5 years</span><span class="chip">Lower fixed cost</span><span class="chip">Self-directed</span></div>
+      <h4>What it is</h4>
+      <p>Registering for the same Cambridge, Edexcel, or Oxford AQA exams directly through the British Council's School Registration System, without being enrolled at a school that teaches the syllabus. Preparation happens independently or through a tuition academy instead of a school timetable.</p>
+      <div class="callout"><b>Worth knowing:</b> a private candidate's certificate is identical to a school candidate's &mdash; nothing on it shows how you registered. This is what makes it a legitimate cost-saving route rather than a lesser one, and it's how a growing number of Pakistani students now sit A-Levels.</div>
+      <h4>How it works</h4>
+      <ul>
+        <li>Create an account on the British Council's SRS and register for your chosen subjects and board.</li>
+        <li>Pay the exam fee per subject; British Council Pakistan's deadlines are typically earlier than the international dates the boards publish for schools &mdash; always check britishcouncil.pk for the specific session.</li>
+        <li>Prepare through an academy, online tuition, or self-study, then sit the exam at a British Council-approved centre.</li>
+      </ul>
+      <h4>Choosing a board</h4>
+      <p>Cambridge has the widest network of past papers and local tuition support; Edexcel and Oxford AQA are increasingly available online and sometimes offer more flexible subject combinations. Check which board your intended tuition source teaches before committing.</p>
+      <a class="linkbtn" href="calculator.html?path=op">See the real cost of this route →</a>
+      <div class="src">Source: British Council Pakistan, private candidate registration guidance</div>
     </div>
-    <p class="note" style="margin-top:22px;max-width:640px">Every figure in the calculator is tagged Collected (from a real fee card, receipt, or exam-board schedule) or Estimate (to be verified) &mdash; nothing is presented as certain until it's sourced. <a href="about.html" style="color:var(--green)">See the full methodology &rarr;</a></p>
-  </div>
-</section>
+  </details>
 
-<section class="founder">
-  <div class="wrap">
-    <h2 class="sech">Why I'm building this</h2>
-    <div class="founderbox">
-      <svg class="icn" viewBox="0 0 24 24" style="width:30px;height:30px;stroke:none;fill:var(--green-soft);margin-bottom:14px"><path d="M7.5 6.5c-2.3.9-3.5 3-3.5 5.8 0 3 1.9 5.3 4.6 5.3 2.1 0 3.6-1.5 3.6-3.5 0-1.8-1.2-3.1-2.9-3.1-.6 0-1.1.15-1.5.4.1-1.7 1.2-3.3 3.1-4Z" fill="var(--green-soft)"/><path d="M17 6.5c-2.3.9-3.5 3-3.5 5.8 0 3 1.9 5.3 4.6 5.3 2.1 0 3.6-1.5 3.6-3.5 0-1.8-1.2-3.1-2.9-3.1-.6 0-1.1.15-1.5.4.1-1.7 1.2-3.3 3.1-4Z" fill="var(--green-soft)"/></svg>
-      <p>Between O-Levels, a period of financial uncertainty, and eventually the GED, I moved through more of Pakistan's education systems than most families ever compare directly &mdash; and kept asking the same question: how much of a student's path comes down to ability, and how much to a family's ability to pay.</p>
-      <p>Private schooling, tutoring, and alternative credentials have each grown into separate, largely hidden cost layers on top of tuition. AwaamEd exists to make that full cost visible and comparable, so a family's choice can be driven by fit &mdash; not by which costs happen to show up first.</p>
-      <p class="signoff">&mdash; Ali Tariq, founder</p>
+  <details class="profile">
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><rect x="4" y="8.5" width="16" height="12.5" rx="1"/><path d="M4 8.5 12 3l8 5.5"/><line x1="8.5" y1="12.5" x2="8.5" y2="14.5"/><line x1="12" y1="12.5" x2="12" y2="14.5"/><line x1="15.5" y1="12.5" x2="15.5" y2="14.5"/><rect x="10.4" y="16.5" width="3.2" height="4.5"/></svg></span><div class="ph"><h3>Matric / FSc</h3><div class="pt">The default local pathway, run by the provincial boards</div></div></summary>
+    <div class="body">
+      <div><span class="chip">4 years</span><span class="chip">BISE boards</span><span class="chip">Lowest direct cost</span></div>
+      <h4>What it is</h4>
+      <p>A government-regulated two-stage certificate: Matric (SSC) over two years, then FSc/FA/ICS (HSSC, "Intermediate") over two more, run by a provincial Board of Intermediate and Secondary Education.</p>
+      <h4>How it works</h4>
+      <ul>
+        <li>Enrol at a recognised school, then college, for each stage.</li>
+        <li>Choose a stream at Matric or FSc level &mdash; Pre-Medical, Pre-Engineering, or Humanities/Commerce &mdash; which narrows or widens later degree options, so it's worth deciding with the target degree in mind.</li>
+        <li>Sit board exams each year; results and certificates come directly from BISE, with no separate equivalence step needed for local admission.</li>
+      </ul>
+      <h4>Recognition</h4>
+      <p>The default accepted qualification across Pakistani university and entry-test systems (MDCAT, ECAT, and most university-specific tests). For study abroad, most destinations require HEC attestation and some require an additional foundation year, depending on the country and institution.</p>
+      <a class="linkbtn" href="calculator.html?path=mf">See the real cost of this route →</a>
     </div>
-  </div>
-</section>
+  </details>
 
-<section class="roadmap">
-  <div class="wrap">
-    <h2 class="sech">What's coming next</h2>
-    <ol class="rmlist">
-      <li><b>More cities.</b> Karachi and Islamabad data collection begins next, following the same sourcing standard as Lahore.</li>
-      <li><b>A scholarship and financial-aid directory,</b> so a family can see funding options alongside the cost.</li>
-      <li><b>A visualised tuition-inflation tracker,</b> published on an annual cycle once enough years of data exist.</li>
-      <li><b>Research and distribution partnerships</b> &mdash; with organisations already doing rigorous education-cost research and public education-access campaigns in Pakistan &mdash; to get this in front of families directly, not just online.</li>
-    </ol>
-  </div>
-</section>
-
-<section class="finalcta">
-  <div class="wrap">
-    <div class="ctabox">
-      <h2>See what your family's route really costs.</h2>
-      <a class="btn primary" href="calculator.html">Open the Cost Calculator &rarr;</a>
+  <details class="profile">
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.5 4 5.7 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.7-4-9s1.4-6.5 4-9Z"/></svg></span><div class="ph"><h3>US community college transfer (2+2)</h3><div class="pt">A cheaper way into a US bachelor's &mdash; not a cheap one</div></div></summary>
+    <div class="body">
+      <div><span class="chip">Abroad</span><span class="chip">F-1 visa</span><span class="chip warn">USD 18,000–33,000 / year</span></div>
+      <h4>What it is</h4>
+      <p>Two years at a US community college followed by transfer into the 3rd year of a four-year university &mdash; the final degree is awarded by the four-year university, identical to a student who started there directly.</p>
+      <h4>How it works</h4>
+      <ul>
+        <li>Apply to a SEVP-approved community college and receive an I-20 to support an F-1 student visa application.</li>
+        <li>Complete an associate's degree while meeting the specific transfer requirements of your target university or state transfer system.</li>
+        <li>Apply to transfer, typically after your second year, carrying completed credits forward.</li>
+      </ul>
+      <div class="callout"><b>Be honest about the cost:</b> even this route runs roughly USD 18,000–33,000 a year once tuition and living costs are combined &mdash; a large multiple of any local Pakistani pathway. It's a genuine way to reduce the cost of a US degree, not a low-cost option in absolute terms.</div>
+      <h4>Recognition</h4>
+      <p>Credits are transferable within the college's established partner network, but not every community college has a strong transfer pathway to every university &mdash; this needs verifying before enrolling, not after.</p>
+      <div class="src">Sources: US Department of State student visa guidance &middot; published community-college tuition and living-cost ranges for international students, 2026</div>
     </div>
-  </div>
-</section>
+  </details>
+
+  <details class="profile">
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><rect x="3" y="4" width="14" height="10" rx="1.3"/><path d="M17 8.5 21 6v8l-4-2.5"/></svg></span><div class="ph"><h3>Online / distance preparation</h3><div class="pt">For flexible schedules or students overseas</div></div></summary>
+    <div class="body">
+      <div><span class="chip">Flexible schedule</span><span class="chip">Exam still in-person</span></div>
+      <h4>What it is</h4>
+      <p>Studying O/A-Level or GED content through live online classes or a self-paced platform, while still registering for and sitting the actual exam in person &mdash; through Cambridge, Edexcel, or Oxford AQA via the British Council, or at a GED test centre.</p>
+      <h4>Who it suits</h4>
+      <p>Students with a scheduling conflict, no suitable school nearby, or overseas Pakistani families wanting to keep children on a Pakistan-relevant curriculum from abroad.</p>
+      <div class="callout"><b>Important distinction:</b> "online" describes the teaching only. Official O/A-Level and GED exams in Pakistan still require sitting in person at a board-registered test centre &mdash; treat any platform claiming a fully online exam with caution.</div>
+      <h4>Real cost</h4>
+      <p>Broadly similar to the private-candidate route, since it uses the same registration path with online rather than in-person tuition.</p>
+    </div>
+
+  </details>
+
+    <p class="note" style="margin-top:6px">This library is a starting map, not a final word &mdash; policies at IBCC, HEC, and individual universities change, and each institution sets its own additional requirements. Confirm directly with the relevant board or university before making a decision.</p>
+</div>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footwrap">

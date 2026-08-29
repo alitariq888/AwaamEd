@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AwaamEd · What will school really cost?</title>
+<title>AwaamEd · Scholarships and Financial Aid</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -141,17 +141,7 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 @media (max-width:760px){.footwrap{grid-template-columns:1fr}}
 
 /* ---------- Homepage ---------- */
-.hero{padding:56px 0 12px;background:linear-gradient(180deg,#E9F2EC 0%,var(--bg) 100%)}
-.herogrid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
-.heroart{display:flex;justify-content:center}
-.heroart svg{width:100%;max-width:380px;height:auto}
-@media (max-width:900px){.herogrid{grid-template-columns:1fr}.heroart{order:-1;margin-bottom:8px}.heroart svg{max-width:260px}}
-
-.icn{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
-.statIcn{width:26px;height:26px;margin-bottom:10px;opacity:.85}
-.iwrap{width:44px;height:44px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center}
-.tools{background:var(--green-soft)}
-.founder{background:var(--green-soft)}
+.hero{padding:56px 0 12px}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
 .hero h1{font-size:44px;line-height:1.1;max-width:800px}
 .lead{font-size:18px;color:var(--muted);max-width:620px;margin-top:18px;line-height:1.6}
@@ -173,8 +163,7 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 .toolgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .toolcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s}
 .toolcard:hover{border-color:var(--green);transform:translateY(-2px)}
-.ti{width:40px;height:40px;border-radius:10px;background:var(--green-soft);color:var(--green);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.ti .icn{width:21px;height:21px}
+.ti{width:34px;height:34px;border-radius:10px;background:var(--green-soft);color:var(--green);font-family:Fraunces,serif;font-weight:600;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:15px}
 .toolcard h3{font-size:19px;margin-bottom:9px}
 .toolcard p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px;min-height:66px}
 .tarrow{font-size:13px;font-weight:600;color:var(--green)}
@@ -220,137 +209,97 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
   <div class="navwrap">
     <a class="brand" href="index.html" style="text-decoration:none">AwaamEd</a>
     <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="calculator.html">Cost Calculator</a>
       <a href="library.html">Pathway Library</a>
-      <a href="scholarships.html">Scholarships &amp; Aid</a>
+      <a href="scholarships.html" class="active">Scholarships &amp; Aid</a>
       <a href="about.html">Data &amp; Methodology</a>
     </nav>
   </div>
 </header>
-<section class="hero">
+<div class="libhero">
   <div class="wrap">
-    <div class="herogrid">
-    <div>
-    <div class="eyebrow">Open-access education planning &middot; Pakistan</div>
-    <h1>What will school really cost, from now until university?</h1>
-    <p class="lead">Most families compare this month's tuition fee. AwaamEd compares the whole route &mdash; tuition, exam fees, transport, private tutoring, and the years it takes &mdash; across O/A-Levels, Matric/FSc, and the GED, so a decision that shapes five years gets made with five years of numbers.</p>
-    <div class="herobtns">
-      <a class="btn primary" href="calculator.html">Compare pathway costs &rarr;</a>
-      <a class="btn ghost" href="library.html">Explore the pathways</a>
-    </div>
-    </div>
-    <div class="heroart">
-      <svg viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="240" cy="210" r="190" fill="#E4EFEA"/>
-        <path d="M60 330 C 130 330, 150 260, 230 210" stroke="#9FC4AF" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14" fill="none"/>
-        <path d="M90 120 C 140 150, 170 170, 230 200" stroke="#5C9179" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14" fill="none"/>
-        <path d="M70 220 C 130 220, 170 215, 232 208" stroke="#1B5E4A" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14" fill="none"/>
-        <circle cx="60" cy="330" r="9" fill="#9FC4AF"/>
-        <circle cx="90" cy="120" r="9" fill="#5C9179"/>
-        <circle cx="70" cy="220" r="9" fill="#1B5E4A"/>
-        <circle cx="240" cy="205" r="34" fill="#FFFFFF" stroke="#1B5E4A" stroke-width="2.5"/>
-        <g transform="translate(216,188)">
-          <path d="M24 6 44 15 24 24 4 15Z" fill="#1B5E4A"/>
-          <path d="M12 19.5V29c0 3.2 5.4 6 12 6s12-2.8 12-6v-9.5" stroke="#1B5E4A" stroke-width="2.3" fill="none" stroke-linecap="round"/>
-          <path d="M44 15V25" stroke="#1B5E4A" stroke-width="2.3" stroke-linecap="round"/>
-        </g>
-        <g transform="translate(120,300)">
-          <rect x="0" y="0" width="54" height="30" rx="8" fill="#FFFFFF" stroke="#B8741A" stroke-width="1.8"/>
-          <text x="27" y="20" font-family="Fraunces, serif" font-weight="600" font-size="13" fill="#B8741A" text-anchor="middle">PKR</text>
-        </g>
-        <g transform="translate(300,120)">
-          <circle cx="16" cy="16" r="16" fill="#FFFFFF" stroke="#1B5E4A" stroke-width="1.8"/>
-          <polyline points="16,8 16,16 21,19" stroke="#1B5E4A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-      </svg>
-    </div>
-    </div>
+  <div class="eyebrow">Scholarships &amp; Financial Aid</div>
+  <h1 style="font-size:34px;max-width:720px">Funding that can lower the numbers on the calculator</h1>
+  <p class="lead" style="font-size:16px;margin-top:12px">Real government and donor-funded programmes for Pakistani students &mdash; who they're for, what they cover, and how to apply. Every entry is sourced; check the official portal before relying on any date or amount, since these change every cycle.</p>
   </div>
-</section>
+</div>
 
-<section class="problem">
-  <div class="wrap">
-    <h2 class="sech">Why this exists</h2>
-    <div class="pgrid">
-      <div><div class="pnum">01</div><h3>Fees are quoted monthly, decisions last for years</h3><p>Families rarely see the full multi-year total before choosing a pathway &mdash; and by the time it's visible, the choice has usually already been made.</p></div>
-      <div><div class="pnum">02</div><h3>The real costs stay hidden until they're due</h3><p>Private tutoring, transport, exam fees billed in US dollars, equivalence certificates &mdash; none of it shows up on the first fee card a family sees.</p></div>
-      <div><div class="pnum">03</div><h3>Comparisons run on reputation, not numbers</h3><p>O-Levels, Matric, GED &mdash; the choice between them is usually word-of-mouth. AwaamEd puts real, sourced figures next to each other instead.</p></div>
-    </div>
-  </div>
-</section>
+<div class="wrap" style="padding-top:28px">
 
-<section class="tools">
-  <div class="wrap">
-    <h2 class="sech">What AwaamEd does</h2>
-    <div class="toolgrid">
-      <a class="toolcard" href="calculator.html">
-        <div class="ti"><svg class="icn" viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2.2"/><line x1="7" y1="6.5" x2="17" y2="6.5"/><circle cx="7.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="7.5" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="14.5" r="1" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Cost Calculator</h3>
-        <p>Compare four real pathways side by side &mdash; every fee editable, every number sourced or clearly flagged as an estimate.</p>
-        <span class="tarrow">Open the calculator &rarr;</span>
-      </a>
-      <a class="toolcard" href="calculator.html">
-        <div class="ti"><svg class="icn" viewBox="0 0 24 24"><ellipse cx="12" cy="15" rx="3.6" ry="2.2"/><ellipse cx="12" cy="11.5" rx="5" ry="3"/><ellipse cx="12" cy="8" rx="6.4" ry="3.8"/></svg></div>
-        <h3>Family Budget Planner</h3>
-        <p>Turn the comparison into a monthly plan &mdash; what share of income each route takes, and how much to save starting today.</p>
-        <span class="tarrow">Plan your budget &rarr;</span>
-      </a>
-      <a class="toolcard" href="library.html">
-        <div class="ti"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5.5c-1.6-1.2-4-1.6-6.5-1.2v13.4c2.5-.4 4.9 0 6.5 1.2 1.6-1.2 4-1.6 6.5-1.2V4.3c-2.5-.4-4.9 0-6.5 1.2Z"/><line x1="12" y1="5.5" x2="12" y2="18.9"/></svg></div>
-        <h3>Pathway Library</h3>
-        <p>Roadmaps for every route &mdash; how each one works, how it's recognised for admission, and what families get caught out by.</p>
-        <span class="tarrow">Read the roadmaps &rarr;</span>
-      </a>
+  <details class="profile" open>
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><path d="M12 3 22 8l-10 5L2 8Z"/><path d="M6 10.3V15c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.7"/><path d="M22 8v6.5"/></svg></span><div class="ph"><h3>Ehsaas Undergraduate Scholarship Program</h3><div class="pt">Federal &middot; need &amp; merit-based &middot; public universities only</div></div></summary>
+    <div class="body">
+      <div><span class="chip">Undergraduate only</span><span class="chip">Full tuition + stipend</span><span class="chip warn">Public sector universities only</span></div>
+      <h4>Who it's for</h4>
+      <p>Pakistani students newly admitted on merit to an HEC-recognised public-sector university, from households below a family-income threshold set by HEC (widely cited around PKR 45,000/month, but confirm the current figure on the portal). Run by the Higher Education Commission under the Prime Minister's Ehsaas programme.</p>
+      <h4>What it covers</h4>
+      <p>Full tuition fees for the duration of the degree, plus a monthly stipend, as long as the student maintains satisfactory academic standing (commonly cited as CGPA 3.0 or above, with no failed courses).</p>
+      <h4>How to apply</h4>
+      <p>Applications go through the university's Student Financial Aid Office alongside admission, not directly to HEC. Required documents include CNIC (or B-Form if under 18), income proof, and recent utility bills. Application windows open periodically &mdash; the portal is closed outside those windows, so timing matters.</p>
+      <div class="callout"><b>Worth knowing:</b> this scheme is undergraduate-only and public-university-only. Students on a private-university track, or already past their first year, don't qualify for a fresh award.</div>
+      <div class="src">Source: Higher Education Commission of Pakistan, hec.gov.pk/english/scholarshipsgrants/Ehsaas</div>
     </div>
-  </div>
-</section>
+  </details>
 
-<section class="stats">
-  <div class="wrap">
-    <h2 class="sech">Where the project stands</h2>
-    <div class="statgrid">
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><path d="M12 3 22 8l-10 5L2 8Z"/><path d="M6 10.3V15c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.7"/></svg><div class="statnum">4</div><div class="statlbl">pathways compared side by side</div></div>
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><path d="M6 2.5h9l3.5 3.5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M15 2.5V6h3.5"/><line x1="7.5" y1="12" x2="15.5" y2="12"/><line x1="7.5" y1="15.5" x2="15.5" y2="15.5"/></svg><div class="statnum">30+</div><div class="statlbl">sourced fee figures, dated and tagged</div></div>
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><path d="M12 21.5S4.5 14.8 4.5 9.3A7.5 7.5 0 0 1 12 2a7.5 7.5 0 0 1 7.5 7.3c0 5.5-7.5 12.2-7.5 12.2Z"/><circle cx="12" cy="9.3" r="2.6"/></svg><div class="statnum">1</div><div class="statlbl">city live today &mdash; Lahore, more underway</div></div>
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="1.5"/><path d="M8 10.5V7a4 4 0 0 1 6.5-3.1"/><circle cx="12" cy="15" r="1.4" fill="currentColor" stroke="none"/></svg><div class="statnum">Free</div><div class="statlbl">open access &mdash; no login, no data collected</div></div>
+  <details class="profile">
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><rect x="4" y="8.5" width="16" height="12.5" rx="1"/><path d="M4 8.5 12 3l8 5.5"/><line x1="8.5" y1="12.5" x2="8.5" y2="14.5"/><line x1="12" y1="12.5" x2="12" y2="14.5"/><line x1="15.5" y1="12.5" x2="15.5" y2="14.5"/><rect x="10.4" y="16.5" width="3.2" height="4.5"/></svg></span><div class="ph"><h3>PEEF &mdash; Punjab Educational Endowment Fund</h3><div class="pt">Provincial &middot; covers Matric and Intermediate, not just university</div></div></summary>
+    <div class="body">
+      <div><span class="chip">Matric &amp; Intermediate too</span><span class="chip">Punjab domicile</span><span class="chip">Mostly auto-nominated</span></div>
+      <h4>Who it's for</h4>
+      <p>The one most directly relevant to families using this calculator: PEEF funds Matric and Intermediate (FSc/FA) students, not just university. Eligibility: passed Matric or Intermediate in the annual exam through a Punjab or Federal board, scored at least 60%, family income at or below PKR 60,000/month, and enrolled full-time in the same year as passing.</p>
+      <h4>What it covers</h4>
+      <p>A scholarship stipend at the relevant level (Matric, Intermediate, Bachelor's, or Master's). Since 2009, PEEF has awarded over 475,000 scholarships and disbursed more than PKR 30 billion.</p>
+      <h4>How to apply</h4>
+      <p>Unusually, most PEEF awards under the "Outreach" category are <i>not</i> applied for &mdash; PEEF pulls top scorers directly from board results and contacts them. Special Quota (orphans, disabled students, minorities) and Master's-level awards do require an application. Check peef.org.pk for which category applies.</p>
+      <div class="callout"><b>Worth knowing:</b> because most awards are auto-nominated from board result data, there's no form to fill in to be considered for Outreach scholarships &mdash; scoring 60%+ in a Punjab or Federal board exam and meeting the income threshold is what puts a student in the pool.</div>
+      <div class="src">Source: Punjab Educational Endowment Fund, peef.org.pk/outreach-scholarships</div>
     </div>
-    <p class="note" style="margin-top:22px;max-width:640px">Every figure in the calculator is tagged Collected (from a real fee card, receipt, or exam-board schedule) or Estimate (to be verified) &mdash; nothing is presented as certain until it's sourced. <a href="about.html" style="color:var(--green)">See the full methodology &rarr;</a></p>
-  </div>
-</section>
+  </details>
 
-<section class="founder">
-  <div class="wrap">
-    <h2 class="sech">Why I'm building this</h2>
-    <div class="founderbox">
-      <svg class="icn" viewBox="0 0 24 24" style="width:30px;height:30px;stroke:none;fill:var(--green-soft);margin-bottom:14px"><path d="M7.5 6.5c-2.3.9-3.5 3-3.5 5.8 0 3 1.9 5.3 4.6 5.3 2.1 0 3.6-1.5 3.6-3.5 0-1.8-1.2-3.1-2.9-3.1-.6 0-1.1.15-1.5.4.1-1.7 1.2-3.3 3.1-4Z" fill="var(--green-soft)"/><path d="M17 6.5c-2.3.9-3.5 3-3.5 5.8 0 3 1.9 5.3 4.6 5.3 2.1 0 3.6-1.5 3.6-3.5 0-1.8-1.2-3.1-2.9-3.1-.6 0-1.1.15-1.5.4.1-1.7 1.2-3.3 3.1-4Z" fill="var(--green-soft)"/></svg>
-      <p>Between O-Levels, a period of financial uncertainty, and eventually the GED, I moved through more of Pakistan's education systems than most families ever compare directly &mdash; and kept asking the same question: how much of a student's path comes down to ability, and how much to a family's ability to pay.</p>
-      <p>Private schooling, tutoring, and alternative credentials have each grown into separate, largely hidden cost layers on top of tuition. AwaamEd exists to make that full cost visible and comparable, so a family's choice can be driven by fit &mdash; not by which costs happen to show up first.</p>
-      <p class="signoff">&mdash; Ali Tariq, founder</p>
+  <details class="profile">
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.5 4 5.7 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.7-4-9s1.4-6.5 4-9Z"/></svg></span><div class="ph"><h3>SEEF &mdash; Sindh Education Endowment Fund</h3><div class="pt">Provincial &middot; university level &middot; Sindh domicile</div></div></summary>
+    <div class="body">
+      <div><span class="chip">University level</span><span class="chip">Sindh domicile</span><span class="chip">Annual re-application</span></div>
+      <h4>Who it's for</h4>
+      <p>Students with Sindh domicile, enrolled at a SEEF-panel public or private university in fields including Engineering, IT, Medicine (MBBS/BDS/Pharmacy), Business, Law, or Social Sciences, with a GPA of 2.5/60% or above and family income within the fund's threshold.</p>
+      <h4>What it covers</h4>
+      <p>Tuition fees for one academic year at a time &mdash; renewal means reapplying, since the award is not automatically continued into the next year.</p>
+      <h4>How to apply</h4>
+      <p>Applications open annually (recent cycles have closed 31 August) via seef.sindh.gov.pk, with a hard copy submitted through the student's university. Final-year, overseas, and fully self-financed students are not eligible.</p>
+      <div class="src">Source: Government of Sindh, College Education Department, seef.sindh.gov.pk</div>
     </div>
-  </div>
-</section>
+  </details>
 
-<section class="roadmap">
-  <div class="wrap">
-    <h2 class="sech">What's coming next</h2>
-    <ol class="rmlist">
-      <li><b>More cities.</b> Karachi and Islamabad data collection begins next, following the same sourcing standard as Lahore.</li>
-      <li><b>A scholarship and financial-aid directory,</b> so a family can see funding options alongside the cost.</li>
-      <li><b>A visualised tuition-inflation tracker,</b> published on an annual cycle once enough years of data exist.</li>
-      <li><b>Research and distribution partnerships</b> &mdash; with organisations already doing rigorous education-cost research and public education-access campaigns in Pakistan &mdash; to get this in front of families directly, not just online.</li>
-    </ol>
-  </div>
-</section>
-
-<section class="finalcta">
-  <div class="wrap">
-    <div class="ctabox">
-      <h2>See what your family's route really costs.</h2>
-      <a class="btn primary" href="calculator.html">Open the Cost Calculator &rarr;</a>
+  <details class="profile">
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><path d="M6 2.5h9l3.5 3.5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M15 2.5V6h3.5"/><line x1="7.5" y1="12" x2="15.5" y2="12"/><line x1="7.5" y1="15.5" x2="15.5" y2="15.5"/></svg></span><div class="ph"><h3>Pak-USAID Merit &amp; Needs-Based Scholarship</h3><div class="pt">Federal &middot; specific fields &middot; partner universities only</div></div></summary>
+    <div class="body">
+      <div><span class="chip">Tuition + housing + stipend</span><span class="chip">~30 partner universities</span><span class="chip">Field-restricted</span></div>
+      <h4>Who it's for</h4>
+      <p>Academically strong, financially disadvantaged students admitted to one of roughly 30 partner universities, in Agriculture, Business, Engineering, Medical, or Social Sciences. Jointly run by HEC and USAID since 2004.</p>
+      <h4>What it covers</h4>
+      <p>Full tuition, student housing, textbooks, and a food stipend &mdash; one of the more comprehensive packages on this list, not tuition-only.</p>
+      <h4>How to apply</h4>
+      <p>Applications are handled by the financial aid office of each partner university, not centrally through HEC or USAID &mdash; check whether your target university is on the current partner list before applying elsewhere.</p>
+      <div class="src">Source: Higher Education Commission of Pakistan, hec.gov.pk &middot; USAID Pakistan programme archive</div>
     </div>
-  </div>
-</section>
+  </details>
+
+  <details class="profile">
+    <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2.2"/><line x1="7" y1="6.5" x2="17" y2="6.5"/><circle cx="7.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="11" r="1" fill="currentColor" stroke="none"/></svg></span><div class="ph"><h3>GED fee waivers</h3><div class="pt">A common question &mdash; and an honest answer</div></div></summary>
+    <div class="body">
+      <div><span class="chip warn">Not available in Pakistan</span></div>
+      <h4>What families often assume</h4>
+      <p>GED Testing Service does run a fee-waiver programme &mdash; up to four waivers of USD 30 each toward test fees, for candidates who show financial hardship and pass a GED Ready practice test.</p>
+      <div class="callout"><b>The honest answer:</b> this waiver programme, along with state-funded free-testing schemes (Texas, New York, and others), is specific to test-takers based in the United States. It is not available to private candidates testing in Pakistan. Search results advertising "GED scholarships" for Pakistani students are, almost without exception, US domestic programmes that don't apply here &mdash; worth knowing before spending time on an application that was never open to you.</div>
+      <h4>What actually helps instead</h4>
+      <p>For the GED route, the realistic cost-reduction options are self-study instead of a prep centre (see the Pathway Library), and the general scholarships above if the plan afterward is a Pakistani public university, since GED holders with IBCC equivalence can apply to the same undergraduate scholarships as Matric/FSc or O/A-Level graduates.</p>
+      <div class="src">Source: GED Testing Service fee-waiver guidance (US state programmes)</div>
+    </div>
+  </details>
+
+  <p class="note" style="margin-top:6px">This list currently focuses on Punjab and Sindh, plus federal programmes &mdash; provincial funds for Khyber Pakhtunkhwa and Balochistan, and private/NGO scholarships, are the next additions. Amounts, income thresholds, and application windows change yearly: always confirm on the official portal linked in each source before applying.</p>
+</div>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footwrap">
@@ -362,7 +311,7 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
         <a href="calculator.html">Cost Calculator</a>
         <a href="calculator.html">Family Budget Planner</a>
         <a href="library.html">Pathway Library</a>
-      <a href="scholarships.html">Scholarships &amp; Aid</a>
+        <a href="scholarships.html">Scholarships &amp; Aid</a>
         <a href="about.html">Data &amp; Methodology</a>
       </div>
       <div class="fcol"><h4>Project</h4>
