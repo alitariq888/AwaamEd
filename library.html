@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AwaamEd · Pathway Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F7F7F2;--card:#fff;--ink:#132422;--muted:#66706C;--line:#E3E6E0;--green:#1B5E4A;--green-soft:#E4EFEA;--amber:#B8741A;--amber-soft:#FBF1E0;--r:14px}
 *{box-sizing:border-box}
@@ -14,14 +14,6 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spac
 button,select,input{font:inherit;color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 64px}
 .toolhead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
-.libhero{background:var(--ink);padding:48px 0 42px;margin-bottom:8px}
-.libhero .eyebrow{color:#8FCBA8}
-.libhero h1{color:#fff}
-.libhero .lead{color:#B9C4BF}
-.wrap{counter-reset:profile}
-.picon{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-right:2px}
-.icn{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
-.picon .icn{width:18px;height:18px;stroke:var(--green)}
 .brand{font-family:Fraunces,serif;font-size:28px;font-weight:600;color:var(--green)}
 .brand small{display:block;font-family:Inter;font-size:13px;font-weight:500;color:var(--muted)}
 .pill{font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer}
@@ -210,16 +202,153 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 .article li{font-size:15px;line-height:1.7;margin-bottom:8px;color:var(--ink)}
 .article .legend{font-size:13px}
 
+.icn{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
+.iwrap{width:44px;height:44px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;padding:0;border:0}
+.picon{flex-shrink:0;width:36px;height:36px;border-radius:0;background:#fff;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;margin-right:2px;box-shadow:4px 4px 0 -1px var(--accent);transition:box-shadow .3s,transform .3s}
+.picon .icn{stroke:var(--ink)!important}
+.profile{transition:border-color .3s,box-shadow .3s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.profile:hover{border-color:#C7CFC9;box-shadow:0 10px 24px -16px rgba(0,0,0,.3)}
+.profile:hover .picon{transform:translate(-1px,-1px);box-shadow:6px 6px 0 -1px var(--accent)}
+.picon .icn{width:18px;height:18px;stroke:var(--green)}
+.statIcn{width:26px;height:26px;margin-bottom:10px;opacity:.85}
+.assum{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 18px}
+.assum > div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.assum .iwrap{width:36px;height:36px;border-radius:10px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-bottom:10px;padding:0;border:0}
+.assum .iwrap .icn{width:19px;height:19px}
+.assum b{display:block;font-size:14.5px;margin-bottom:4px}
+.assum span{font-size:13.5px;color:var(--muted);line-height:1.55}
+@media (max-width:600px){.assum{grid-template-columns:1fr}}
+.libhero{background:var(--ink);padding:48px 0 42px;margin-bottom:8px}
+.libhero .eyebrow{color:#8FCBA8}
+.libhero h1{color:#fff}
+.libhero .lead{color:#B9C4BF}
+
+:root{
+  --bg:#F7F7F2;--card:#fff;--ink:#14201C;--muted:#5C6864;--line:#E3E6E0;
+  --green:#1B5E4A;--green-dk:#0F3D30;
+  --navy:#3A5A7A;--navy-dk:#1B2E42;
+  --rust:#A85332;--rust-dk:#6B2F14;--rust-soft:#F5E6DE;
+  --gold:#C99A4A;--gold-dk:#8A5A14;--gold-soft:#F7EFDC;
+  --wine:#8C3E52;--wine-dk:#4A1B27;--wine-soft:#F3E3E7;
+  --slate:#6B7378;--slate-dk:#2A2F33;--slate-soft:#EAEBEC;
+  --navy-soft:#E8EEF4;
+  --accent:var(--green);--accent-dk:var(--green-dk);--accent-soft:#E4EFEA;
+  --r:2px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:Fraunces,serif;font-weight:700;margin:0;letter-spacing:-.015em}
+button,select,input{font:inherit;color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+a{color:inherit}
+
+.site-nav{background:var(--green-dk);padding:18px 0;position:sticky;top:0;z-index:50;transition:box-shadow .3s,padding .3s}
+.site-nav.scrolled{box-shadow:0 8px 24px -12px rgba(0,0,0,.4);padding:12px 0}
+.navwrap{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.brand{font-family:Fraunces,serif;font-size:21px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:-.01em}
+.nav-links{display:flex;flex-wrap:wrap;gap:0}
+.nav-links a{color:#9FB6AC;text-decoration:none;font-size:13px;font-weight:600;margin-left:24px;text-transform:uppercase;letter-spacing:.04em;padding-bottom:4px;border-bottom:2px solid transparent}
+.nav-links a.active{color:#fff;border-bottom-color:var(--gold)}
+.nav-links a:hover{color:#fff}
+
+.toolhead{background:var(--accent-dk);padding:52px 0 78px;position:relative;clip-path:polygon(0 0,100% 0,100% 88%,0 100%);margin-bottom:0}
+.toolhead .brand2{color:#fff;font-size:32px}
+.toolhead .brand2 small{display:block;font-family:Inter;font-size:14px;font-weight:500;color:#C7D3CD;margin-top:8px}
+.toolhead .pill{background:transparent;border:1.5px solid var(--gold);color:var(--gold);font-size:11px;font-weight:700;padding:8px 15px;letter-spacing:.04em;text-transform:uppercase}
+.toolhead .pill.green{background:var(--gold);color:var(--accent-dk);border:0;cursor:pointer}
+.libhero{background:var(--accent-dk);padding:52px 0 60px;clip-path:polygon(0 0,100% 0,100% 92%,0 100%)}
+.libhero .eyebrow{color:var(--gold)}
+.libhero h1{color:#fff}
+.libhero .lead{color:#C7D3CD}
+
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.docheader{border-left:4px solid var(--gold);padding-left:26px;margin-bottom:38px}
+
+.pagetabs.seg{display:inline-flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);padding:3px;margin-top:24px}
+.pagetabs.seg button{border:0;background:transparent;padding:9px 18px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;color:#C7D3CD}
+.pagetabs.seg button.on{background:var(--gold);color:var(--accent-dk)}
+
+.stripe{background:var(--gold)}
+.stripewrap{max-width:1120px;margin:0 auto;padding:24px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stripewrap .item{text-align:center;border-right:1.5px solid rgba(15,61,48,.22)}
+.stripewrap .item:last-child{border-right:0}
+.stripewrap .item b{font-family:Fraunces,serif;font-size:24px;color:var(--accent-dk);display:block;font-weight:700}
+.stripewrap .item span{font-size:10.5px;color:var(--accent-dk);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.stripe .item b{font-family:Fraunces,serif;color:var(--accent-dk)}
+.stripe .item span{color:var(--accent-dk)}
+
+.btn,.pill.green,a.btn{display:inline-flex;align-items:center;text-decoration:none;letter-spacing:.02em;text-transform:uppercase;font-weight:700;transition:transform .25s,box-shadow .25s;cursor:pointer;border:0}
+.btn.primary{background:var(--gold);color:var(--accent-dk);padding:14px 26px;font-size:13px}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.4);color:#fff;background:transparent;padding:14px 26px;font-size:13px}
+.btn:hover,.pill.green:hover{transform:translateY(-3px);box-shadow:0 14px 26px -10px rgba(0,0,0,.4)}
+
+section{padding:0;background:transparent;border:0}
+.sechead{padding:56px 0 8px}
+h3{font-size:24px}
+.sub,.subh{color:var(--muted);font-size:14.5px}
+
+.card,.field,.profile,.card2{border-radius:var(--r)!important;border:1px solid var(--line);background:var(--card)}
+.card.best{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.card.sel{background:var(--accent-soft)}
+.tag{border-radius:0!important;background:var(--accent-dk)!important;color:#fff!important}
+.card .tag.none{background:var(--gold-dk)!important}
+
+.chip{border-radius:0!important;background:var(--accent-soft)!important;color:var(--accent-dk)!important;font-weight:700!important;text-transform:uppercase;letter-spacing:.03em;font-size:10.5px!important}
+.chip.warn{background:#F7E9D8!important;color:var(--gold-dk)!important}
+
+.profile summary::after{color:var(--muted);font-weight:300}
+.profile h4{color:var(--accent-dk);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11.5px}
+.profile .callout{border-radius:0!important;background:#F4F0E7!important;border-left:3px solid var(--gold)!important}
+.profile .callout b{color:var(--gold-dk)!important}
+.picon,.iwrap,.ti{border-radius:0!important;background:var(--accent-dk)!important}
+.picon .icn,.iwrap .icn,.ti .icn{stroke:#fff!important}
+.src.data{background:var(--accent-soft)!important;color:var(--accent-dk)!important;border-radius:0!important}
+.src.est{background:#F7E9D8!important;color:var(--gold-dk)!important;border-radius:0!important}
+.badge{border-radius:0!important}
+
+.field{border-radius:0!important}
+.field:focus-within{border-color:var(--accent)!important;box-shadow:none!important}
+.seg{border-radius:0!important}
+.seg button.on{border-radius:0!important;background:var(--accent)!important}
+
+.line.total{background:var(--accent-soft)}
+.bar i{background:var(--accent)!important}
+
+.assum>div,.pgrid>div,.toolcard{border-radius:0!important}
+.toolcard.c1{background:var(--green)!important}
+.toolcard.c2{background:var(--rust)!important}
+.toolcard.c3{background:var(--navy)!important}
+
+.footer2,.site-footer{background:var(--green-dk)!important;color:#8FA69B!important;border:0!important}
+.site-footer .fcol a,.site-footer .fcol h4,.site-footer .brand{color:#fff!important}
+.site-footer .fcol p,.site-footer .footbottom{color:#8FA69B!important}
+.site-footer .footbottom a{color:#8FA69B!important}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+.reveal-stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal-stagger.show>*{opacity:1;transform:translateY(0)}
+.reveal-stagger.show>*:nth-child(1){transition-delay:.04s}
+.reveal-stagger.show>*:nth-child(2){transition-delay:.12s}
+.reveal-stagger.show>*:nth-child(3){transition-delay:.2s}
+.reveal-stagger.show>*:nth-child(4){transition-delay:.28s}
+.reveal-stagger.show>*:nth-child(5){transition-delay:.36s}
+.reveal-stagger.show>*:nth-child(6){transition-delay:.44s}
+.reveal-stagger.show>*:nth-child(7){transition-delay:.5s}
+@media (prefers-reduced-motion:reduce){.reveal,.reveal-stagger>*{opacity:1!important;transform:none!important}}
+
+
+:root{--accent:var(--rust);--accent-dk:var(--rust-dk);--accent-soft:var(--rust-soft);}
 </style>
 </head>
 <body>
 <header class="site-nav">
   <div class="navwrap">
-    <a class="brand" href="index.html" style="text-decoration:none">AwaamEd</a>
+    <a class="brand" href="index.html">AwaamEd</a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="calculator.html">Cost Calculator</a>
-      <a href="library.html">Pathway Library</a>
+      <a href="library.html" class="active">Pathway Library</a>
       <a href="scholarships.html">Scholarships &amp; Aid</a>
       <a href="inflation.html">Inflation Tracker</a>
       <a href="about.html">Data &amp; Methodology</a>
@@ -230,12 +359,11 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
   <div class="wrap">
   <div class="eyebrow">Pathway Library</div>
   <h1 style="font-size:34px;max-width:720px">Roadmaps for every route</h1>
-  <p class="lead" style="font-size:16px;margin-top:12px">What each pathway actually involves &mdash; how it works, how it's recognised for university admission, and what families most often get caught out by. Tap a route to open it.</p>
+  <p class="lead" style="font-size:16px;margin-top:12px">What each pathway actually involves &mdash; how it works, how it's recognised for university admission, and what families most often get caught out by.</p>
   </div>
 </div>
-
-<div class="wrap" style="padding-top:28px">
-    <details class="profile" open>
+<div class="wrap reveal-stagger" style="padding-top:36px">
+  <details class="profile" open>
     <summary><span class="picon"><svg class="icn" viewBox="0 0 24 24"><path d="M6 2.5h9l3.5 3.5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M15 2.5V6h3.5"/><line x1="7.5" y1="12" x2="15.5" y2="12"/><line x1="7.5" y1="15.5" x2="15.5" y2="15.5"/></svg></span><div class="ph"><h3>GED</h3><div class="pt">Fast, flexible — but the equivalence rules have a catch</div></div></summary>
     <div class="body">
       <div><span class="chip">Self-paced</span><span class="chip">6–12 months</span><span class="chip">4 tests</span><span class="chip warn">Two-year rule applies to some</span></div>
@@ -361,18 +489,27 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
         <a href="calculator.html">Cost Calculator</a>
         <a href="calculator.html">Family Budget Planner</a>
         <a href="library.html">Pathway Library</a>
-      <a href="scholarships.html">Scholarships &amp; Aid</a>
-      <a href="inflation.html">Inflation Tracker</a>
+        <a href="scholarships.html">Scholarships &amp; Aid</a>
+        <a href="inflation.html">Inflation Tracker</a>
         <a href="about.html">Data &amp; Methodology</a>
       </div>
       <div class="fcol"><h4>Project</h4>
-        <a href="https://github.com/alitariq888/AwaamEd" target="_blank" rel="noopener">GitHub repository</a>
         <a href="about.html">Status: Live in Lahore</a>
       </div>
     </div>
     <div class="footbottom">AwaamEd is an open-access, non-commercial project. Figures marked Collected come from actual fee cards, exam-board schedules and family interviews in Lahore, 2026; Estimates are flagged until verified. Republished yearly as the AwaamEd Education Inflation Report. Spotted a wrong number? <a href="about.html">Tell us</a>.</div>
   </div>
 </footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("show"); io.unobserve(e.target); } });
+}, {threshold:0.1, rootMargin:"0px 0px -60px 0px"});
+document.querySelectorAll(".reveal, .reveal-stagger").forEach(el=>io.observe(el));
+const _nav = document.querySelector(".site-nav");
+if(_nav) window.addEventListener("scroll", ()=>{ _nav.classList.toggle("scrolled", window.scrollY>10); });
+</script>
+
 
 </body>
 </html>

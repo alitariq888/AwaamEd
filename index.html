@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AwaamEd · What will school really cost?</title>
+<title>AwaamEd · What will education really cost?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F7F7F2;--card:#fff;--ink:#132422;--muted:#66706C;--line:#E3E6E0;--green:#1B5E4A;--green-soft:#E4EFEA;--amber:#B8741A;--amber-soft:#FBF1E0;--r:14px}
 *{box-sizing:border-box}
@@ -141,17 +141,7 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 @media (max-width:760px){.footwrap{grid-template-columns:1fr}}
 
 /* ---------- Homepage ---------- */
-.hero{padding:56px 0 12px;background:linear-gradient(180deg,#E9F2EC 0%,var(--bg) 100%)}
-.herogrid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
-.heroart{display:flex;justify-content:center}
-.heroart svg{width:100%;max-width:380px;height:auto}
-@media (max-width:900px){.herogrid{grid-template-columns:1fr}.heroart{order:-1;margin-bottom:8px}.heroart svg{max-width:260px}}
-
-.icn{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
-.statIcn{width:26px;height:26px;margin-bottom:10px;opacity:.85}
-.iwrap{width:44px;height:44px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center}
-.tools{background:var(--green-soft)}
-.founder{background:var(--green-soft)}
+.hero{padding:56px 0 12px}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
 .hero h1{font-size:44px;line-height:1.1;max-width:800px}
 .lead{font-size:18px;color:var(--muted);max-width:620px;margin-top:18px;line-height:1.6}
@@ -173,8 +163,7 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 .toolgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .toolcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s}
 .toolcard:hover{border-color:var(--green);transform:translateY(-2px)}
-.ti{width:40px;height:40px;border-radius:10px;background:var(--green-soft);color:var(--green);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.ti .icn{width:21px;height:21px}
+.ti{width:34px;height:34px;border-radius:10px;background:var(--green-soft);color:var(--green);font-family:Fraunces,serif;font-weight:600;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:15px}
 .toolcard h3{font-size:19px;margin-bottom:9px}
 .toolcard p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px;min-height:66px}
 .tarrow{font-size:13px;font-weight:600;color:var(--green)}
@@ -213,12 +202,211 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 .article li{font-size:15px;line-height:1.7;margin-bottom:8px;color:var(--ink)}
 .article .legend{font-size:13px}
 
+.icn{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
+.iwrap{width:44px;height:44px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;padding:0;border:0}
+.picon{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-right:2px;padding:0;border:0}
+.picon .icn{width:18px;height:18px;stroke:var(--green)}
+.statIcn{width:26px;height:26px;margin-bottom:10px;opacity:.85}
+.assum{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 18px}
+.assum > div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.assum .iwrap{width:36px;height:36px;border-radius:10px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-bottom:10px;padding:0;border:0}
+.assum .iwrap .icn{width:19px;height:19px}
+.assum b{display:block;font-size:14.5px;margin-bottom:4px}
+.assum span{font-size:13.5px;color:var(--muted);line-height:1.55}
+@media (max-width:600px){.assum{grid-template-columns:1fr}}
+.libhero{background:var(--ink);padding:48px 0 42px;margin-bottom:8px}
+.libhero .eyebrow{color:#8FCBA8}
+.libhero h1{color:#fff}
+.libhero .lead{color:#B9C4BF}
+
+:root{
+  --bg:#F7F7F2;--card:#fff;--ink:#14201C;--muted:#5C6864;--line:#E3E6E0;
+  --green:#3E6B58;--green-dk:#16281F;
+  --navy:#3A5A7A;--navy-dk:#1B2E42;
+  --rust:#A85332;--rust-dk:#6B2F14;
+  --gold:#C99A4A;--gold-dk:#8A5A14;
+  --wine:#8C3E52;--wine-dk:#4A1B27;
+  --slate:#6B7378;--slate-dk:#2A2F33;
+  --accent:var(--green);--accent-dk:var(--green-dk);--accent-soft:#E4EFEA;
+  --r:2px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:Fraunces,serif;font-weight:700;margin:0;letter-spacing:-.015em}
+button,select,input{font:inherit;color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+a{color:inherit}
+
+.site-nav{background:var(--green-dk);padding:18px 0;position:sticky;top:0;z-index:50;transition:box-shadow .3s,padding .3s}
+.site-nav.scrolled{box-shadow:0 8px 24px -12px rgba(0,0,0,.4);padding:12px 0}
+.navwrap{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.brand{font-family:Fraunces,serif;font-size:21px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:-.01em}
+.nav-links{display:flex;flex-wrap:wrap;gap:0}
+.nav-links a{color:#9FB6AC;text-decoration:none;font-size:13px;font-weight:600;margin-left:24px;text-transform:uppercase;letter-spacing:.04em;padding-bottom:4px;border-bottom:2px solid transparent}
+.nav-links a.active{color:#fff;border-bottom-color:var(--gold)}
+.nav-links a:hover{color:#fff}
+
+.toolhead{background:var(--accent-dk);padding:52px 0 78px;position:relative;clip-path:polygon(0 0,100% 0,100% 88%,0 100%);margin-bottom:0}
+.toolhead .brand2{color:#fff;font-size:32px}
+.toolhead .brand2 small{display:block;font-family:Inter;font-size:14px;font-weight:500;color:#C7D3CD;margin-top:8px}
+.toolhead .pill{background:transparent;border:1.5px solid var(--gold);color:var(--gold);font-size:11px;font-weight:700;padding:8px 15px;letter-spacing:.04em;text-transform:uppercase}
+.toolhead .pill.green{background:var(--gold);color:var(--accent-dk);border:0;cursor:pointer}
+.libhero{background:var(--accent-dk);padding:52px 0 60px;clip-path:polygon(0 0,100% 0,100% 92%,0 100%)}
+.libhero .eyebrow{color:var(--gold)}
+.libhero h1{color:#fff}
+.libhero .lead{color:#C7D3CD}
+
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.docheader{border-left:4px solid var(--gold);padding-left:26px;margin-bottom:38px}
+
+.pagetabs.seg{display:inline-flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);padding:3px;margin-top:24px}
+.pagetabs.seg button{border:0;background:transparent;padding:9px 18px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;color:#C7D3CD}
+.pagetabs.seg button.on{background:var(--gold);color:var(--accent-dk)}
+
+.stripe{background:var(--gold)}
+.stripewrap{max-width:1120px;margin:0 auto;padding:24px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stripewrap .item{text-align:center;border-right:1.5px solid rgba(15,61,48,.22)}
+.stripewrap .item:last-child{border-right:0}
+.stripewrap .item b{font-family:Fraunces,serif;font-size:24px;color:var(--accent-dk);display:block;font-weight:700}
+.stripewrap .item span{font-size:10.5px;color:var(--accent-dk);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.stripe .item b{font-family:Fraunces,serif;color:var(--accent-dk)}
+.stripe .item span{color:var(--accent-dk)}
+
+.btn,.pill.green,a.btn{display:inline-flex;align-items:center;text-decoration:none;letter-spacing:.02em;text-transform:uppercase;font-weight:700;transition:transform .25s,box-shadow .25s;cursor:pointer;border:0}
+.btn.primary{background:var(--gold);color:var(--accent-dk);padding:14px 26px;font-size:13px}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.4);color:#fff;background:transparent;padding:14px 26px;font-size:13px}
+.btn:hover,.pill.green:hover{transform:translateY(-3px);box-shadow:0 14px 26px -10px rgba(0,0,0,.4)}
+
+section{padding:0;background:transparent;border:0}
+.sechead{padding:56px 0 8px}
+h3{font-size:24px}
+.sub,.subh{color:var(--muted);font-size:14.5px}
+
+.card,.field,.profile,.card2{border-radius:var(--r)!important;border:1px solid var(--line);background:var(--card)}
+.card.best{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.card.sel{background:var(--accent-soft)}
+.tag{border-radius:0!important;background:var(--accent-dk)!important;color:#fff!important}
+.card .tag.none{background:var(--gold-dk)!important}
+
+.chip{border-radius:0!important;background:var(--accent-soft)!important;color:var(--accent-dk)!important;font-weight:700!important;text-transform:uppercase;letter-spacing:.03em;font-size:10.5px!important}
+.chip.warn{background:#F7E9D8!important;color:var(--gold-dk)!important}
+
+.profile summary::after{color:var(--muted);font-weight:300}
+.profile h4{color:var(--accent-dk);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11.5px}
+.profile .callout{border-radius:0!important;background:#F4F0E7!important;border-left:3px solid var(--gold)!important}
+.profile .callout b{color:var(--gold-dk)!important}
+.picon,.iwrap,.ti{border-radius:0!important;background:var(--accent-dk)!important}
+.picon .icn,.iwrap .icn,.ti .icn{stroke:#fff!important}
+.src.data{background:var(--accent-soft)!important;color:var(--accent-dk)!important;border-radius:0!important}
+.src.est{background:#F7E9D8!important;color:var(--gold-dk)!important;border-radius:0!important}
+.badge{border-radius:0!important}
+
+.field{border-radius:0!important}
+.field:focus-within{border-color:var(--accent)!important;box-shadow:none!important}
+.seg{border-radius:0!important}
+.seg button.on{border-radius:0!important;background:var(--accent)!important}
+
+.line.total{background:var(--accent-soft)}
+.bar i{background:var(--accent)!important}
+
+.assum>div,.pgrid>div,.toolcard{border-radius:0!important}
+.toolcard.c1{background:var(--green)!important}
+.toolcard.c2{background:var(--rust)!important}
+.toolcard.c3{background:var(--navy)!important}
+
+.footer2,.site-footer{background:var(--green-dk)!important;color:#8FA69B!important;border:0!important}
+.site-footer .fcol a,.site-footer .fcol h4,.site-footer .brand{color:#fff!important}
+.site-footer .fcol p,.site-footer .footbottom{color:#8FA69B!important}
+.site-footer .footbottom a{color:#8FA69B!important}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+.reveal-stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal-stagger.show>*{opacity:1;transform:translateY(0)}
+.reveal-stagger.show>*:nth-child(1){transition-delay:.04s}
+.reveal-stagger.show>*:nth-child(2){transition-delay:.12s}
+.reveal-stagger.show>*:nth-child(3){transition-delay:.2s}
+.reveal-stagger.show>*:nth-child(4){transition-delay:.28s}
+@media (prefers-reduced-motion:reduce){.reveal,.reveal-stagger>*{opacity:1!important;transform:none!important}}
+
+
+.photohero{position:relative;min-height:82vh;display:flex;align-items:center;justify-content:center;clip-path:polygon(0 0,100% 0,100% 95%,0 100%);overflow:hidden}
+.photobg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 75%}
+.photo-overlay{position:absolute;inset:0;background:rgba(22,40,31,.6)}
+.photo-content{position:relative;z-index:2;text-align:center;max-width:700px;padding:60px 28px;animation:floatIn3 1s cubic-bezier(.2,.7,.2,1) both}
+.bighero-brand{font-family:Fraunces,serif;font-size:24px;font-weight:700;color:var(--gold);letter-spacing:.02em;margin-bottom:22px}
+.hr-line{width:60px;height:2px;background:var(--gold);margin:0 auto 34px}
+.motive{color:#fff;font-size:32px;line-height:1.28;font-weight:700;letter-spacing:-.01em;max-width:620px;margin:0 auto;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+@media (max-width:820px){.motive{font-size:26px}}
+
+.bigquestion{background:var(--bg);padding:100px 0}
+.bigquestion .qtext{font-size:38px;line-height:1.2;max-width:760px;margin:18px auto 20px;color:var(--ink)}
+.bigquestion .qsub{color:var(--muted);font-size:16px;line-height:1.6;max-width:560px;margin:0 auto}
+@media (max-width:900px){.motive{font-size:28px}.bigquestion .qtext{font-size:26px}}
+
+.bighero .herogrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;width:100%}
+.bighero h1{color:#fff;font-size:60px;line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.bighero .lead{color:#B9CAC2;font-size:18px;line-height:1.6;margin-top:22px;max-width:480px}
+.bighero .trustline{margin-top:30px;color:#8FA69B;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.bighero .trustline b{color:var(--gold);font-family:Fraunces,serif;font-weight:700;font-size:15px;text-transform:none;letter-spacing:0}
+.bighero .dot{opacity:.4}
+.bigart svg{width:100%;height:auto;animation:floatIn3 1.1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes floatIn3{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.bighero .herobtns{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+
+
+.foundersec{padding:90px 0}
+.foundergrid{display:grid;grid-template-columns:.28fr 1fr;gap:50px;align-items:start;max-width:820px;margin:0 auto}
+.fquote{width:84px;height:84px;background:var(--card);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:7px 7px 0 -1px var(--gold);margin-top:6px}
+.ftext p{font-size:16px;line-height:1.8;margin-bottom:16px;color:var(--ink)}
+.fsign{color:var(--muted);font-style:italic;font-size:14px;margin-top:6px}
+@media (max-width:760px){.foundergrid{grid-template-columns:1fr}.fquote{margin-bottom:6px}}
+.toolssec{padding:90px 0}
+
+.contactsec{padding:90px 0}
+.qform{background:var(--card);border:2px solid var(--ink);padding:34px;box-shadow:8px 8px 0 -1px var(--gold);margin-bottom:48px}
+.qform .field2{margin-bottom:16px}
+.qform label{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.qform input,.qform textarea{width:100%;border:1px solid var(--line);padding:11px 13px;font-size:15px;font-family:Inter,sans-serif;outline:none;resize:vertical}
+.qform input:focus,.qform textarea:focus{border-color:var(--accent)}
+.mailnote{font-size:12.5px;color:var(--muted);text-align:center;margin-top:14px}
+.helph{font-size:24px;margin-bottom:14px}
+.helpp{font-size:15px;color:var(--muted);line-height:1.7;max-width:520px;margin:0 auto}
+
+.toolssec .eyebrow{text-align:center;display:block}
+.toolssec .sech{text-align:center;font-size:34px;margin-bottom:14px}
+.toolssec .subh{text-align:center;margin:0 auto 50px;max-width:480px}
+.toolgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:20px 10px 40px;position:relative}
+.tc3{background:var(--card);padding:40px 30px;box-shadow:0 18px 40px -18px rgba(15,40,31,.35);position:relative;border:1px solid rgba(0,0,0,.04)}
+.tc3.a{transform:translateY(-6px) rotate(-1.2deg);z-index:3}
+.tc3.b{transform:translateY(16px) rotate(0.8deg);z-index:2;box-shadow:0 24px 48px -18px rgba(15,40,31,.42)}
+.tc3.c{transform:translateY(-2px) rotate(-0.6deg);z-index:1}
+.tc3.a{margin-right:-14px}
+.tc3.c{margin-left:-14px}
+.tc3 .iwrap3{width:60px;height:60px;background:#fff;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:26px;position:relative;box-shadow:6px 6px 0 -1px var(--gold)}
+.tc3.a .iwrap3{box-shadow:6px 6px 0 -1px var(--green)}
+.tc3.b .iwrap3{box-shadow:6px 6px 0 -1px var(--rust)}
+.tc3.c .iwrap3{box-shadow:6px 6px 0 -1px var(--navy)}
+.tc3 h3{font-size:21px;margin-bottom:12px}
+.tc3 p{font-size:14.5px;color:var(--muted);line-height:1.65;margin-bottom:22px}
+.tc3 a{color:var(--accent-dk);font-weight:700;font-size:12.5px;text-decoration:none;text-transform:uppercase;letter-spacing:.04em;border-bottom:2px solid var(--gold);padding-bottom:3px}
+.tc3{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.tc3.a:hover{transform:translateY(-16px) rotate(-1.2deg)}
+.tc3.b:hover{transform:translateY(6px) rotate(0.8deg)}
+.tc3.c:hover{transform:translateY(-12px) rotate(-0.6deg)}
+@media (max-width:900px){.toolgrid3{grid-template-columns:1fr;gap:22px}.tc3.a,.tc3.b,.tc3.c{transform:none;margin:0}.tc3.a:hover,.tc3.b:hover,.tc3.c:hover{transform:translateY(-8px)}}
+
+.cta4{background:var(--accent-dk);padding:90px 0;text-align:center;clip-path:polygon(0 5%,100% 0,100% 100%,0 100%)}
+.cta4 h2{font-size:38px;color:#fff;margin-bottom:30px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.15}
+@media (max-width:900px){.bighero .herogrid{grid-template-columns:1fr}.bighero h1{font-size:38px}.bighero{min-height:auto;padding-top:40px}.toolgrid3{grid-template-columns:1fr}.cta4 h2{font-size:26px}}
+
+:root{--accent:var(--green);--accent-dk:var(--green-dk);}
 </style>
 </head>
 <body>
 <header class="site-nav">
   <div class="navwrap">
-    <a class="brand" href="index.html" style="text-decoration:none">AwaamEd</a>
+    <a class="brand" href="index.html">AwaamEd</a>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="calculator.html">Cost Calculator</a>
@@ -229,129 +417,117 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
     </nav>
   </div>
 </header>
-<section class="hero">
-  <div class="wrap">
-    <div class="herogrid">
-    <div>
-    <div class="eyebrow">Open-access education planning &middot; Pakistan</div>
-    <h1>What will school really cost, from now until university?</h1>
-    <p class="lead">Most families compare this month's tuition fee. AwaamEd compares the whole route &mdash; tuition, exam fees, transport, private tutoring, and the years it takes &mdash; across O/A-Levels, Matric/FSc, and the GED, so a decision that shapes five years gets made with five years of numbers.</p>
-    <div class="herobtns">
-      <a class="btn primary" href="calculator.html">Compare pathway costs &rarr;</a>
-      <a class="btn ghost" href="library.html">Explore the pathways</a>
-    </div>
-    </div>
-    <div class="heroart">
-      <svg viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="240" cy="210" r="190" fill="#E4EFEA"/>
-        <path d="M60 330 C 130 330, 150 260, 230 210" stroke="#9FC4AF" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14" fill="none"/>
-        <path d="M90 120 C 140 150, 170 170, 230 200" stroke="#5C9179" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14" fill="none"/>
-        <path d="M70 220 C 130 220, 170 215, 232 208" stroke="#1B5E4A" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14" fill="none"/>
-        <circle cx="60" cy="330" r="9" fill="#9FC4AF"/>
-        <circle cx="90" cy="120" r="9" fill="#5C9179"/>
-        <circle cx="70" cy="220" r="9" fill="#1B5E4A"/>
-        <circle cx="240" cy="205" r="34" fill="#FFFFFF" stroke="#1B5E4A" stroke-width="2.5"/>
-        <g transform="translate(216,188)">
-          <path d="M24 6 44 15 24 24 4 15Z" fill="#1B5E4A"/>
-          <path d="M12 19.5V29c0 3.2 5.4 6 12 6s12-2.8 12-6v-9.5" stroke="#1B5E4A" stroke-width="2.3" fill="none" stroke-linecap="round"/>
-          <path d="M44 15V25" stroke="#1B5E4A" stroke-width="2.3" stroke-linecap="round"/>
-        </g>
-        <g transform="translate(120,300)">
-          <rect x="0" y="0" width="54" height="30" rx="8" fill="#FFFFFF" stroke="#B8741A" stroke-width="1.8"/>
-          <text x="27" y="20" font-family="Fraunces, serif" font-weight="600" font-size="13" fill="#B8741A" text-anchor="middle">PKR</text>
-        </g>
-        <g transform="translate(300,120)">
-          <circle cx="16" cy="16" r="16" fill="#FFFFFF" stroke="#1B5E4A" stroke-width="1.8"/>
-          <polyline points="16,8 16,16 21,19" stroke="#1B5E4A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-      </svg>
-    </div>
+<section class="photohero">
+  <img class="photobg" src="https://images.pexels.com/photos/33016076/pexels-photo-33016076.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" alt="Two students studying in a historic corridor in Peshawar, Pakistan">
+  <div class="photo-overlay"></div>
+  <div class="photo-content">
+    <div class="bighero-brand">AwaamEd</div>
+    <div class="hr-line"></div>
+    <h1 class="motive">The real cost of education, made visible for every Pakistani family.</h1>
+    <div class="herobtns" style="justify-content:center">
+      <a class="btn primary" href="calculator.html">Compare Costs &rarr;</a>
+      <a class="btn ghost" href="library.html">Explore Pathways</a>
     </div>
   </div>
 </section>
 
-<section class="problem">
+<section class="bigquestion reveal">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow" style="justify-content:center;display:flex">The Question We Keep Coming Back To</span>
+    <h2 class="qtext">What will education really cost, from now until university?</h2>
+    <p class="qsub">Not this month's fee. Tuition, exam fees, transport, tutoring &mdash; the full route, for O/A-Levels, Matric/FSc, and the GED.</p>
+    <div class="trustline" style="justify-content:center;margin-top:26px"><b>4</b> pathways <span class="dot">&middot;</span> <b>30+</b> sourced figures <span class="dot">&middot;</span> <b>Free</b>, always</div>
+  </div>
+</section>
+
+<section class="foundersec reveal">
   <div class="wrap">
-    <h2 class="sech">Why this exists</h2>
-    <div class="pgrid">
-      <div><div class="pnum">01</div><h3>Fees are quoted monthly, decisions last for years</h3><p>Families rarely see the full multi-year total before choosing a pathway &mdash; and by the time it's visible, the choice has usually already been made.</p></div>
-      <div><div class="pnum">02</div><h3>The real costs stay hidden until they're due</h3><p>Private tutoring, transport, exam fees billed in US dollars, equivalence certificates &mdash; none of it shows up on the first fee card a family sees.</p></div>
-      <div><div class="pnum">03</div><h3>Comparisons run on reputation, not numbers</h3><p>O-Levels, Matric, GED &mdash; the choice between them is usually word-of-mouth. AwaamEd puts real, sourced figures next to each other instead.</p></div>
+    <div class="foundergrid">
+      <div class="fquote">
+        <svg viewBox="0 0 64 64" width="52" height="52"><path d="M22 16c-9 3.5-14 12-14 23.2 0 12 7.6 21.2 18.4 21.2 8.4 0 14.4-6 14.4-14 0-7.2-4.8-12.4-11.6-12.4-2.4 0-4.4.6-6 1.6.4-6.8 4.8-13.2 12.4-16Z" fill="#C99A4A"/><path d="M50 16c-9 3.5-14 12-14 23.2 0 12 7.6 21.2 18.4 21.2 8.4 0 14.4-6 14.4-14 0-7.2-4.8-12.4-11.6-12.4-2.4 0-4.4.6-6 1.6.4-6.8 4.8-13.2 12.4-16Z" fill="#C99A4A" transform="translate(-14,0)"/></svg>
+      </div>
+      <div class="ftext">
+        <span class="eyebrow">The Founder</span>
+        <h2 class="sech" style="margin-bottom:22px">Why I'm building this.</h2>
+        <p>Between O-Levels, a period of financial uncertainty, and eventually the GED, I moved through more of Pakistan's education systems than most families ever compare directly &mdash; and kept asking the same question: how much of a student's path comes down to ability, and how much to a family's ability to pay.</p>
+        <p>Private schooling, tutoring, and alternative credentials have each grown into separate, largely hidden cost layers on top of tuition. AwaamEd exists to make that full cost visible and comparable, so a family's choice can be driven by fit &mdash; not by which costs happen to show up first.</p>
+        <p class="fsign">&mdash; Ali Tariq, founder</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="tools">
+<section class="toolssec reveal">
   <div class="wrap">
-    <h2 class="sech">What AwaamEd does</h2>
-    <div class="toolgrid">
-      <a class="toolcard" href="calculator.html">
-        <div class="ti"><svg class="icn" viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2.2"/><line x1="7" y1="6.5" x2="17" y2="6.5"/><circle cx="7.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="7.5" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="14.5" r="1" fill="currentColor" stroke="none"/></svg></div>
-        <h3>Cost Calculator</h3>
-        <p>Compare four real pathways side by side &mdash; every fee editable, every number sourced or clearly flagged as an estimate.</p>
-        <span class="tarrow">Open the calculator &rarr;</span>
-      </a>
-      <a class="toolcard" href="calculator.html">
-        <div class="ti"><svg class="icn" viewBox="0 0 24 24"><ellipse cx="12" cy="15" rx="3.6" ry="2.2"/><ellipse cx="12" cy="11.5" rx="5" ry="3"/><ellipse cx="12" cy="8" rx="6.4" ry="3.8"/></svg></div>
-        <h3>Family Budget Planner</h3>
-        <p>Turn the comparison into a monthly plan &mdash; what share of income each route takes, and how much to save starting today.</p>
-        <span class="tarrow">Plan your budget &rarr;</span>
-      </a>
-      <a class="toolcard" href="library.html">
-        <div class="ti"><svg class="icn" viewBox="0 0 24 24"><path d="M12 5.5c-1.6-1.2-4-1.6-6.5-1.2v13.4c2.5-.4 4.9 0 6.5 1.2 1.6-1.2 4-1.6 6.5-1.2V4.3c-2.5-.4-4.9 0-6.5 1.2Z"/><line x1="12" y1="5.5" x2="12" y2="18.9"/></svg></div>
-        <h3>Pathway Library</h3>
-        <p>Roadmaps for every route &mdash; how each one works, how it's recognised for admission, and what families get caught out by.</p>
-        <span class="tarrow">Read the roadmaps &rarr;</span>
-      </a>
+    <span class="eyebrow">The Platform</span>
+    <h2 class="sech">Three tools. One dataset.</h2>
+    <p class="subh">Everything free, everything sourced, nothing behind a login.</p>
+    <div class="toolgrid3 reveal-stagger">
+      <div class="tc3 a"><div class="iwrap3 realistic"><svg viewBox="0 0 64 64" style="width:38px;height:38px">
+  <defs><linearGradient id="calcbody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F2F6F3"/><stop offset="100%" stop-color="#D8E4DD"/></linearGradient>
+  <linearGradient id="calcscreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1E3B2C"/><stop offset="100%" stop-color="#0F2018"/></linearGradient></defs>
+  <rect x="9" y="3" width="46" height="58" rx="6" fill="url(#calcbody)" stroke="#B9C9BF" stroke-width="0.5"/>
+  <rect x="13.5" y="7.5" width="37" height="47" rx="2.5" fill="#16281F"/>
+  <rect x="17" y="12" width="30" height="13" rx="2" fill="url(#calcscreen)"/>
+  <text x="43" y="22" font-family="monospace" font-size="8.5" fill="#8FD9AE" text-anchor="end">4,219</text>
+  <g fill="#4A7A62"><rect x="17.5" y="29" width="8.5" height="7.5" rx="1.8"/><rect x="27.7" y="29" width="8.5" height="7.5" rx="1.8"/><rect x="37.9" y="29" width="8.5" height="7.5" rx="1.8"/>
+  <rect x="17.5" y="38.5" width="8.5" height="7.5" rx="1.8"/><rect x="27.7" y="38.5" width="8.5" height="7.5" rx="1.8"/><rect x="37.9" y="38.5" width="8.5" height="7.5" rx="1.8"/>
+  <rect x="17.5" y="48" width="8.5" height="7.5" rx="1.8"/><rect x="27.7" y="48" width="8.5" height="7.5" rx="1.8"/></g>
+  <rect x="37.9" y="48" width="8.5" height="7.5" rx="1.8" fill="#C99A4A"/>
+  <rect x="18" y="30" width="7.5" height="2.5" rx="1" fill="#6B9E82" opacity="0.6"/>
+</svg></div><h3>Cost Calculator</h3><p>Compare four real pathways side by side &mdash; every fee editable, every number sourced.</p><a href="calculator.html">Open the Calculator &rarr;</a></div>
+      <div class="tc3 b"><div class="iwrap3 realistic"><svg viewBox="0 0 64 64" style="width:38px;height:38px">
+  <defs><radialGradient id="piggrad" cx="35%" cy="30%" r="75%"><stop offset="0%" stop-color="#E39468"/><stop offset="100%" stop-color="#C1663C"/></radialGradient></defs>
+  <ellipse cx="30" cy="37" rx="25" ry="18" fill="#8C4A2E"/>
+  <ellipse cx="30" cy="33" rx="25" ry="18" fill="url(#piggrad)"/>
+  <circle cx="50" cy="27" r="6.5" fill="url(#piggrad)"/>
+  <polygon points="47.5,18 54,18 51,10" fill="url(#piggrad)"/>
+  <circle cx="52" cy="26" r="1.7" fill="#6B2F14"/>
+  <rect x="25" y="15" width="11" height="4" rx="2" fill="#6B2F14" transform="rotate(-8 30.5 17)"/>
+  <ellipse cx="8" cy="45" rx="4.2" ry="6.5" fill="url(#piggrad)"/><ellipse cx="20" cy="48" rx="4.2" ry="6.5" fill="url(#piggrad)"/>
+  <ellipse cx="41" cy="48" rx="4.2" ry="6.5" fill="url(#piggrad)"/><ellipse cx="51" cy="45" rx="4.2" ry="6.5" fill="url(#piggrad)"/>
+  <circle cx="14" cy="29" r="2.3" fill="#6B2F14"/>
+  <ellipse cx="20" cy="24" rx="7" ry="4" fill="#F0B592" opacity="0.5"/>
+</svg></div><h3>Budget Planner</h3><p>Turn the comparison into a monthly plan and a savings target.</p><a href="calculator.html">Plan Your Budget &rarr;</a></div>
+      <div class="tc3 c"><div class="iwrap3 realistic"><svg viewBox="0 0 64 64" style="width:38px;height:38px">
+  <defs><linearGradient id="pageL" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#22384E"/><stop offset="100%" stop-color="#3A5A7A"/></linearGradient>
+  <linearGradient id="pageR" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3A5A7A"/><stop offset="100%" stop-color="#22384E"/></linearGradient></defs>
+  <path d="M32 13C26 9 16 8 8 10V51C16 49 26 50 32 54C38 50 48 49 56 51V10C48 8 38 9 32 13Z" fill="#0F1A17" opacity="0.15" transform="translate(0,2)"/>
+  <path d="M32 13C26 9 16 8 8 10V51C16 49 26 50 32 54Z" fill="url(#pageL)"/>
+  <path d="M32 13C38 9 48 8 56 10V51C48 49 38 50 32 54Z" fill="url(#pageR)"/>
+  <line x1="32" y1="13" x2="32" y2="54" stroke="#0F1A17" stroke-width="1.3"/>
+  <g stroke="#9FB6C9" stroke-width="1.3" stroke-linecap="round" opacity="0.85"><line x1="13" y1="18" x2="26" y2="16"/><line x1="13" y1="24" x2="26" y2="22"/><line x1="13" y1="30" x2="26" y2="28"/><line x1="13" y1="36" x2="26" y2="34"/><line x1="13" y1="42" x2="26" y2="40"/></g>
+  <g stroke="#C7D6E2" stroke-width="1.3" stroke-linecap="round" opacity="0.85"><line x1="38" y1="16" x2="51" y2="18"/><line x1="38" y1="22" x2="51" y2="24"/><line x1="38" y1="28" x2="51" y2="30"/><line x1="38" y1="34" x2="51" y2="36"/><line x1="38" y1="40" x2="51" y2="42"/></g>
+  <rect x="29.5" y="8" width="5" height="12" fill="#C99A4A"/>
+  <polygon points="29.5,20 34.5,20 32,24" fill="#0F1A17" opacity="0.3"/>
+</svg></div><h3>Pathway Library</h3><p>Roadmaps for every route &mdash; how it works, who it suits.</p><a href="library.html">Read the Roadmaps &rarr;</a></div>
     </div>
   </div>
 </section>
 
-<section class="stats">
+<section class="cta4 reveal">
   <div class="wrap">
-    <h2 class="sech">Where the project stands</h2>
-    <div class="statgrid">
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><path d="M12 3 22 8l-10 5L2 8Z"/><path d="M6 10.3V15c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.7"/></svg><div class="statnum">4</div><div class="statlbl">pathways compared side by side</div></div>
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><path d="M6 2.5h9l3.5 3.5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M15 2.5V6h3.5"/><line x1="7.5" y1="12" x2="15.5" y2="12"/><line x1="7.5" y1="15.5" x2="15.5" y2="15.5"/></svg><div class="statnum">30+</div><div class="statlbl">sourced fee figures, dated and tagged</div></div>
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><path d="M12 21.5S4.5 14.8 4.5 9.3A7.5 7.5 0 0 1 12 2a7.5 7.5 0 0 1 7.5 7.3c0 5.5-7.5 12.2-7.5 12.2Z"/><circle cx="12" cy="9.3" r="2.6"/></svg><div class="statnum">1</div><div class="statlbl">city live today &mdash; Lahore, more underway</div></div>
-      <div><svg class="icn statIcn" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="1.5"/><path d="M8 10.5V7a4 4 0 0 1 6.5-3.1"/><circle cx="12" cy="15" r="1.4" fill="currentColor" stroke="none"/></svg><div class="statnum">Free</div><div class="statlbl">open access &mdash; no login, no data collected</div></div>
-    </div>
-    <p class="note" style="margin-top:22px;max-width:640px">Every figure in the calculator is tagged Collected (from a real fee card, receipt, or exam-board schedule) or Estimate (to be verified) &mdash; nothing is presented as certain until it's sourced. <a href="about.html" style="color:var(--green)">See the full methodology &rarr;</a></p>
+    <h2>See what your family's route really costs &mdash; in three minutes, for free.</h2>
+    <a class="btn primary" href="calculator.html">Open the Cost Calculator &rarr;</a>
   </div>
 </section>
 
-<section class="founder">
-  <div class="wrap">
-    <h2 class="sech">Why I'm building this</h2>
-    <div class="founderbox">
-      <svg class="icn" viewBox="0 0 24 24" style="width:30px;height:30px;stroke:none;fill:var(--green-soft);margin-bottom:14px"><path d="M7.5 6.5c-2.3.9-3.5 3-3.5 5.8 0 3 1.9 5.3 4.6 5.3 2.1 0 3.6-1.5 3.6-3.5 0-1.8-1.2-3.1-2.9-3.1-.6 0-1.1.15-1.5.4.1-1.7 1.2-3.3 3.1-4Z" fill="var(--green-soft)"/><path d="M17 6.5c-2.3.9-3.5 3-3.5 5.8 0 3 1.9 5.3 4.6 5.3 2.1 0 3.6-1.5 3.6-3.5 0-1.8-1.2-3.1-2.9-3.1-.6 0-1.1.15-1.5.4.1-1.7 1.2-3.3 3.1-4Z" fill="var(--green-soft)"/></svg>
-      <p>Between O-Levels, a period of financial uncertainty, and eventually the GED, I moved through more of Pakistan's education systems than most families ever compare directly &mdash; and kept asking the same question: how much of a student's path comes down to ability, and how much to a family's ability to pay.</p>
-      <p>Private schooling, tutoring, and alternative credentials have each grown into separate, largely hidden cost layers on top of tuition. AwaamEd exists to make that full cost visible and comparable, so a family's choice can be driven by fit &mdash; not by which costs happen to show up first.</p>
-      <p class="signoff">&mdash; Ali Tariq, founder</p>
-    </div>
+<section class="contactsec reveal" id="contact">
+  <div class="wrap" style="max-width:640px;text-align:center">
+    <span class="eyebrow" style="justify-content:center;display:flex">Questions?</span>
+    <h2 class="sech" style="margin-bottom:36px">Send Message</h2>
+    <form id="qForm" class="qform" style="text-align:left">
+      <div class="field2"><label for="qName">Name</label><input id="qName" type="text" placeholder="Your name"></div>
+      <div class="field2"><label for="qEmail">Email*</label><input id="qEmail" type="email" placeholder="you@example.com" required></div>
+      <div class="field2"><label for="qMsg">Message</label><textarea id="qMsg" rows="5" placeholder="What's your question?" required></textarea></div>
+      <button type="submit" class="btn primary" style="width:100%;justify-content:center">Send &rarr;</button>
+      <p class="mailnote">Opens directly in your email app &mdash; nothing is stored or tracked on this site.</p>
+    </form>
+    <h3 class="helph">Let us help!</h3>
+    <p class="helpp">If you're not sure which pathway fits your family, or a figure on this site looks wrong, tell us a little more about your situation. We'll get back to you as soon as we can with a real answer &mdash; not a form-letter reply.</p>
   </div>
 </section>
 
-<section class="roadmap">
-  <div class="wrap">
-    <h2 class="sech">What's coming next</h2>
-    <ol class="rmlist">
-      <li><b>More cities.</b> Karachi and Islamabad data collection begins next, following the same sourcing standard as Lahore.</li>
-      <li><b>A scholarship and financial-aid directory,</b> so a family can see funding options alongside the cost.</li>
-      <li><b>A visualised tuition-inflation tracker,</b> published on an annual cycle once enough years of data exist.</li>
-      <li><b>Research and distribution partnerships</b> &mdash; with organisations already doing rigorous education-cost research and public education-access campaigns in Pakistan &mdash; to get this in front of families directly, not just online.</li>
-    </ol>
-  </div>
-</section>
-
-<section class="finalcta">
-  <div class="wrap">
-    <div class="ctabox">
-      <h2>See what your family's route really costs.</h2>
-      <a class="btn primary" href="calculator.html">Open the Cost Calculator &rarr;</a>
-    </div>
-  </div>
-</section>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footwrap">
@@ -363,12 +539,11 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
         <a href="calculator.html">Cost Calculator</a>
         <a href="calculator.html">Family Budget Planner</a>
         <a href="library.html">Pathway Library</a>
-      <a href="scholarships.html">Scholarships &amp; Aid</a>
-      <a href="inflation.html">Inflation Tracker</a>
+        <a href="scholarships.html">Scholarships &amp; Aid</a>
+        <a href="inflation.html">Inflation Tracker</a>
         <a href="about.html">Data &amp; Methodology</a>
       </div>
       <div class="fcol"><h4>Project</h4>
-        <a href="https://github.com/alitariq888/AwaamEd" target="_blank" rel="noopener">GitHub repository</a>
         <a href="about.html">Status: Live in Lahore</a>
       </div>
     </div>
@@ -376,5 +551,44 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
   </div>
 </footer>
 
+<script>
+(function(){
+  const revealEls = Array.from(document.querySelectorAll(".reveal, .reveal-stagger"));
+  function inView(el){
+    const r = el.getBoundingClientRect();
+    return r.top < (window.innerHeight - 40) && r.bottom > 0;
+  }
+  function checkScroll(){
+    revealEls.forEach(el=>{ if(!el.classList.contains("show") && inView(el)) el.classList.add("show"); });
+  }
+  if("IntersectionObserver" in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("show"); io.unobserve(e.target); } });
+    }, {threshold:0.05, rootMargin:"0px 0px -40px 0px"});
+    revealEls.forEach(el=>io.observe(el));
+  }
+  // Backup, scroll-driven (not time-driven) so nothing reveals early while off-screen,
+  // and nothing stays stuck invisible if the observer misbehaves in some browser/context.
+  window.addEventListener("scroll", checkScroll, {passive:true});
+  window.addEventListener("resize", checkScroll);
+  checkScroll();
+})();
+const _nav = document.querySelector(".site-nav");
+if(_nav) window.addEventListener("scroll", ()=>{ _nav.classList.toggle("scrolled", window.scrollY>10); });
+</script>
+
+
+
+<script>
+document.getElementById("qForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const name = document.getElementById("qName").value || "AwaamEd visitor";
+  const email = document.getElementById("qEmail").value;
+  const msg = document.getElementById("qMsg").value;
+  const subject = encodeURIComponent("Question via AwaamEd from " + name);
+  const body = encodeURIComponent(msg + "\n\n(Reply to: " + email + ")");
+  window.location.href = "mailto:m.alitariq888@gmail.com?subject=" + subject + "&body=" + body;
+});
+</script>
 </body>
 </html>

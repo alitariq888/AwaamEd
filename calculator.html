@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AwaamEd · Cost Calculator and Budget Planner</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F7F7F2;--card:#fff;--ink:#132422;--muted:#66706C;--line:#E3E6E0;--green:#1B5E4A;--green-soft:#E4EFEA;--amber:#B8741A;--amber-soft:#FBF1E0;--r:14px}
 *{box-sizing:border-box}
@@ -14,71 +14,126 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spac
 button,select,input{font:inherit;color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 64px}
 .toolhead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
-.calctop{background:var(--green-soft);padding:32px 0 26px;margin-bottom:28px;border-bottom:1px solid #D3E4DA}
-.calctop .toolhead{margin-bottom:20px}
 .brand{font-family:Fraunces,serif;font-size:28px;font-weight:600;color:var(--green)}
 .brand small{display:block;font-family:Inter;font-size:13px;font-weight:500;color:var(--muted)}
-.pill{font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer}
-.pill.green{border-color:var(--green);color:var(--green)}.pill.green:hover{background:var(--green-soft)}
+.pill{font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:background .25s,border-color .25s,transform .2s}
+.pill.green{border-color:var(--green);color:var(--green)}.pill.green:hover{background:var(--green-soft);transform:translateY(-1px)}
 .pill.amber{color:var(--amber);background:var(--amber-soft);border-color:transparent;cursor:default}
 
 .grid{display:grid;gap:14px}
 .g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
-.field{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px}
+.field{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;transition:border-color .25s,box-shadow .25s,transform .25s}
+.field:hover{border-color:#C7D2CB}
 .field label{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
-.field select,.field input{width:100%;border:0;background:transparent;font-size:17px;font-weight:500;padding:2px 0;outline:none;appearance:none;-webkit-appearance:none}
+.field select,.field input{width:100%;border:0;background:transparent;font-size:17px;font-weight:500;padding:2px 0;outline:none;appearance:none;-webkit-appearance:none;transition:color .2s}
 .field select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2366706C' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right center;padding-right:18px}
-.field:focus-within{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.field:focus-within{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft);transform:translateY(-1px)}
 .field .hint{font-size:12px;color:var(--muted);margin-top:3px}
 .money{display:flex;align-items:baseline;gap:6px}.money span{font-size:13px;color:var(--muted)}
 
 .seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px}
-.seg button{border:0;background:transparent;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted)}
+.seg button{border:0;background:transparent;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);transition:background .3s cubic-bezier(.2,.8,.2,1),color .3s}
 .seg button.on{background:var(--green);color:#fff}
 .row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:26px 0 12px}
 .row h3{font-size:19px}
 
+@keyframes riseIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
 .cards{margin-bottom:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;position:relative;display:flex;flex-direction:column;transition:border-color .2s;cursor:pointer}
-.card:hover{border-color:#B9C9C2}.card.best{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;position:relative;display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s,transform .3s cubic-bezier(.2,.8,.2,1);cursor:pointer;animation:riseIn .45s cubic-bezier(.2,.8,.2,1) both}
+.card:hover{border-color:#B9C9C2;transform:translateY(-3px);box-shadow:0 12px 26px -16px rgba(15,40,31,.35)}
+.card.best{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.card.best:hover{transform:translateY(-3px);box-shadow:0 0 0 3px var(--green-soft),0 12px 26px -16px rgba(15,40,31,.35)}
 .card.sel{background:var(--green-soft)}
-.tag{position:absolute;top:12px;right:12px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:4px 8px;border-radius:999px}
+.tag{position:absolute;top:12px;right:12px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:4px 8px;border-radius:999px;animation:fadeIn .5s .1s both}
 .card.sel .tag{background:#fff}
 .card h2{font-size:19px;padding-right:70px}
 .card .yrs{font-size:12px;color:var(--muted);min-height:36px}
-.card .tot{font-family:Fraunces,serif;font-size:30px;font-weight:600;margin-top:8px;line-height:1.1;font-variant-numeric:tabular-nums}
+.card .tot{font-family:Fraunces,serif;font-size:30px;font-weight:600;margin-top:8px;line-height:1.1;font-variant-numeric:tabular-nums;animation:fadeIn .4s both}
 .card .tot small{font-size:12px;font-family:Inter;font-weight:500;color:var(--muted);margin-left:4px}
 .card .mo{margin-top:4px;font-size:14px;color:var(--green);font-weight:500;min-height:22px}
 .card .mo b{font-family:Fraunces,serif;font-size:20px}
 .bar{height:7px;background:var(--line);border-radius:999px;margin-top:12px;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.bar i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
 .card .sub{font-size:12px;color:var(--muted);margin-top:8px}
 
-section{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin-bottom:16px}
+section{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin-bottom:16px;transition:box-shadow .3s}
 section h3{font-size:18px}section .sub{font-size:13px;color:var(--muted);margin:2px 0 14px}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.tabs button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:500;cursor:pointer}
+.tabs button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:500;cursor:pointer;transition:background .3s cubic-bezier(.2,.8,.2,1),color .3s,border-color .3s,transform .2s}
+.tabs button:hover{transform:translateY(-1px);border-color:#B9C9C2}
 .tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.group{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:14px 0 6px;border-bottom:1px solid var(--line)}
-.line{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.catgroup{border-bottom:1px solid var(--line);margin-bottom:2px}
+.catgroup:last-of-type{border-bottom:0}
+.catgroup summary{list-style:none;cursor:pointer;padding:13px 2px;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:background .2s}
+.catgroup summary::-webkit-details-marker{display:none}
+.catgroup summary:hover{background:#FAFAF7}
+.catgroup .ghead{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.catgroup .gicon{width:26px;height:26px;border-radius:8px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.catgroup .gicon svg{width:14px;height:14px;stroke:var(--green);fill:none;stroke-width:1.8}
+.catgroup .gtotal{font-size:13px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;transition:opacity .2s}
+.catgroup summary::after{content:"";width:8px;height:8px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);transition:transform .3s cubic-bezier(.2,.8,.2,1);margin-left:6px}
+.catgroup[open] summary::after{transform:rotate(-135deg)}
+.catgroup .gbody{padding-bottom:8px;animation:riseIn .3s cubic-bezier(.2,.8,.2,1) both}
+.line{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:9px 0 9px 36px;border-bottom:1px solid #F0F1EE}
+.line:last-child{border-bottom:0}
 .line .lbl{font-size:15px}.line .lbl small{display:block;font-size:12px;color:var(--muted)}
 .line .src{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:999px;white-space:nowrap}
 .src.data{background:var(--green-soft);color:var(--green)}.src.est{background:var(--amber-soft);color:var(--amber)}.src.you{background:#E8E8F6;color:#4A4A9A}
 .line .amt{display:flex;align-items:center;gap:6px;justify-content:flex-end}
-.line input{width:110px;text-align:right;border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-variant-numeric:tabular-nums;background:#FAFAF7}
+.line input{width:110px;text-align:right;border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-variant-numeric:tabular-nums;background:#FAFAF7;transition:border-color .25s,box-shadow .25s}
 .line input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
 .line input.edited{background:#F1F1FA;border-color:#B9B9E0}
 .line .unit{font-size:12px;color:var(--muted);width:78px}
-.line.total{border:0;padding-top:14px}.line.total .lbl{font-weight:600}.line.total .amt{font-weight:600;font-size:17px;font-variant-numeric:tabular-nums}
+.line.total{border:0;padding-top:14px;padding-left:0}.line.total .lbl{font-weight:600}.line.total .amt{font-weight:600;font-size:17px;font-variant-numeric:tabular-nums}
 .note{font-size:13px;color:var(--muted);line-height:1.55}
-.reset{font-size:12px;color:var(--muted);background:none;border:0;cursor:pointer;text-decoration:underline;padding:0}
+.reset{font-size:12px;color:var(--muted);background:none;border:0;cursor:pointer;text-decoration:underline;padding:0;transition:color .2s}
+.reset:hover{color:var(--ink)}
 details summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center}
-details summary::after{content:"+";font-size:20px;color:var(--muted)}details[open] summary::after{content:"–"}
+details summary::after{content:"+";font-size:20px;color:var(--muted);transition:transform .3s}details[open] summary::after{content:"–"}
 .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:10px}
 footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer a{color:var(--green)}
+#calcView,#budgetView{animation:fadeIn .35s cubic-bezier(.2,.8,.2,1) both;transition:opacity .32s cubic-bezier(.2,.8,.2,1),transform .32s cubic-bezier(.2,.8,.2,1)}
+
+/* Dashboard redesign */
+.situation{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:22px;overflow:hidden}
+.sitbar{width:100%;display:flex;align-items:center;gap:14px;padding:16px 18px;background:transparent;border:0;cursor:pointer;text-align:left;transition:background .2s}
+.sitbar:hover{background:#FAFAF7}
+.sitlabel{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);flex-shrink:0}
+.sitsummary{flex:1;font-size:14.5px;color:var(--ink);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sitedit{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;flex-shrink:0}
+.sitbody{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.8,.2,1),padding .45s;padding:0 18px}
+.situation.open .sitbody{max-height:600px;padding:4px 18px 20px}
+.situation.open .sitedit{color:var(--muted)}
+
+.dashwrap{display:grid;grid-template-columns:1fr 1.4fr;gap:22px;align-items:start;margin-bottom:20px}
+.chipcol{display:flex;flex-direction:column;gap:8px}
+.pchip{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 16px;background:var(--card);border:1.5px solid var(--line);border-radius:10px;cursor:pointer;transition:border-color .25s,background .25s,transform .2s}
+.pchip:hover{border-color:#B9C9C2;transform:translateX(2px)}
+.pchip.on{border-color:var(--navy);background:#EEF2F6}
+.pchip .pcname{font-size:14px;font-weight:600}
+.pchip .pcname small{display:block;font-size:11.5px;color:var(--muted);font-weight:400}
+.pchip .pcval{font-size:13px;font-variant-numeric:tabular-nums;color:var(--muted);font-weight:600}
+.pchip.on .pcval{color:var(--navy)}
+.pchip .pcbest{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--green);display:block;margin-top:2px}
+
+.hero-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px 32px;position:relative;overflow:hidden}
+.hero-panel::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--navy)}
+.hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+.hero-name{font-size:22px;margin-bottom:14px}
+.hero-num{font-family:Fraunces,serif;font-weight:700;font-size:56px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink);animation:fadeIn .4s both}
+.hero-num small{font-size:16px;font-family:Inter;font-weight:500;color:var(--muted);margin-left:6px}
+.hero-sub{margin-top:10px;font-size:14.5px;color:var(--navy);font-weight:500}
+.hero-sub b{font-family:Fraunces,serif;font-size:19px}
+.hero-bar{height:8px;background:var(--line);border-radius:999px;margin-top:18px;overflow:hidden}
+.hero-bar i{display:block;height:100%;background:var(--navy);border-radius:999px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.hero-foot{margin-top:12px;font-size:12.5px;color:var(--muted)}
+@media (max-width:820px){.dashwrap{grid-template-columns:1fr}}
+@media (max-width:560px){.sitsummary{display:none}}
 @media (max-width:820px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}.line{grid-template-columns:1fr auto}.line .src{display:none}.card h2{padding-right:0}}
-@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+@media (prefers-reduced-motion:reduce){.bar i,.card,.tot,.tag,#calcView,#budgetView,.catgroup .gbody{animation:none!important;transition:none!important}}
 
 .chip{display:inline-block;font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--green-soft);color:var(--green);margin:0 6px 6px 0}
 .chip.warn{background:#FBF1E0;color:#B8741A}
@@ -105,12 +160,29 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 .split{display:flex;height:34px;border-radius:10px;overflow:hidden;margin-top:10px}
 .split div{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;transition:width .4s cubic-bezier(.2,.8,.2,1)}
 .split .ess{background:#8A9791}.split .rest{background:var(--green)}
-.blz{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.blz{display:flex;align-items:center;gap:14px;padding:15px 12px;border-bottom:1px solid var(--line);border-radius:8px;transition:background .25s,transform .2s}
+.blz:hover{background:#FAFAF7;transform:translateX(2px)}
 .blz:last-child{border-bottom:0}
 .blz .nm{flex:1;font-size:15px;font-weight:500}
 .blz .nm small{display:block;font-size:12px;color:var(--muted);font-weight:400}
-.blz .amt2{font-variant-numeric:tabular-nums;font-size:15px;text-align:right;min-width:110px}
-.badge{font-size:11px;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap;min-width:118px;text-align:center}
+.blz .amt2{font-variant-numeric:tabular-nums;font-size:15px;text-align:right;min-width:110px;font-weight:600}
+.badge{font-size:10.5px;font-weight:700;padding:6px 12px;white-space:nowrap;min-width:118px;text-align:center;text-transform:uppercase;letter-spacing:.03em;transition:transform .2s}
+.blz:hover .badge{transform:scale(1.04)}
+.sechead{display:flex;align-items:center;gap:14px;margin-bottom:4px}
+.sec-icon{width:34px;height:34px;background:#fff;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sec-icon svg{width:16px;height:16px}
+.sec-icon-a{box-shadow:4px 4px 0 -1px var(--navy);color:var(--navy)}
+.sec-icon-b{box-shadow:4px 4px 0 -1px var(--green);color:var(--green)}
+.sec-icon-c{box-shadow:4px 4px 0 -1px var(--gold-dk);color:var(--gold-dk)}
+.eyebrow2{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-dk);margin-bottom:8px;display:block}
+.sec-icon{width:34px;height:34px;background:#fff;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:5px 5px 0 -1px var(--gold)}
+.sec-icon.b{box-shadow:5px 5px 0 -1px var(--green)}
+.sec-icon.c{box-shadow:5px 5px 0 -1px var(--rust)}
+.income-hero{padding:22px 0 8px;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:16px 0;position:relative}
+.income-num{font-family:Fraunces,serif;font-weight:700;font-size:46px;color:var(--accent-dk);font-variant-numeric:tabular-nums;animation:fadeIn .4s both}
+.blz{background:var(--card);border:1px solid var(--line);border-radius:0;margin-bottom:10px;padding:16px 18px;display:flex;align-items:center;gap:14px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.blz:hover{transform:translateX(3px);border-color:#C7CFC9;box-shadow:4px 4px 0 -2px var(--line)}
+.income-sub{font-size:13.5px;color:var(--muted);margin-top:4px}
 .badge.ok{background:var(--green-soft);color:var(--green)}
 .badge.tight{background:#FBF1E0;color:#B8741A}
 .badge.stretch{background:#FBE4E0;color:#B84A1A}
@@ -204,12 +276,152 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 .article li{font-size:15px;line-height:1.7;margin-bottom:8px;color:var(--ink)}
 .article .legend{font-size:13px}
 
+.icn{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
+.iwrap{width:44px;height:44px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;padding:0;border:0}
+.picon{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-right:2px;padding:0;border:0}
+.picon .icn{width:18px;height:18px;stroke:var(--green)}
+.statIcn{width:26px;height:26px;margin-bottom:10px;opacity:.85}
+.assum{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 18px}
+.assum > div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.assum .iwrap{width:36px;height:36px;border-radius:10px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-bottom:10px;padding:0;border:0}
+.assum .iwrap .icn{width:19px;height:19px}
+.assum b{display:block;font-size:14.5px;margin-bottom:4px}
+.assum span{font-size:13.5px;color:var(--muted);line-height:1.55}
+@media (max-width:600px){.assum{grid-template-columns:1fr}}
+.libhero{background:var(--ink);padding:48px 0 42px;margin-bottom:8px}
+.libhero .eyebrow{color:#8FCBA8}
+.libhero h1{color:#fff}
+.libhero .lead{color:#B9C4BF}
+
+:root{
+  --bg:#F7F7F2;--card:#fff;--ink:#14201C;--muted:#5C6864;--line:#E3E6E0;
+  --green:#3E6B58;--green-dk:#16281F;
+  --navy:#3A5A7A;--navy-dk:#1B2E42;
+  --rust:#A85332;--rust-dk:#6B2F14;--rust-soft:#F5E6DE;
+  --gold:#C99A4A;--gold-dk:#8A5A14;--gold-soft:#F7EFDC;
+  --wine:#8C3E52;--wine-dk:#4A1B27;--wine-soft:#F3E3E7;
+  --slate:#6B7378;--slate-dk:#2A2F33;--slate-soft:#EAEBEC;
+  --navy-soft:#E8EEF4;
+  --accent:var(--green);--accent-dk:var(--green-dk);--accent-soft:#E4EFEA;
+  --r:2px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:Fraunces,serif;font-weight:700;margin:0;letter-spacing:-.015em}
+button,select,input{font:inherit;color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+a{color:inherit}
+
+.site-nav{background:var(--green-dk);padding:18px 0;position:sticky;top:0;z-index:50;transition:box-shadow .3s,padding .3s}
+.site-nav.scrolled{box-shadow:0 8px 24px -12px rgba(0,0,0,.4);padding:12px 0}
+.navwrap{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.brand{font-family:Fraunces,serif;font-size:21px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:-.01em}
+.nav-links{display:flex;flex-wrap:wrap;gap:0}
+.nav-links a{color:#9FB6AC;text-decoration:none;font-size:13px;font-weight:600;margin-left:24px;text-transform:uppercase;letter-spacing:.04em;padding-bottom:4px;border-bottom:2px solid transparent}
+.nav-links a.active{color:#fff;border-bottom-color:var(--gold)}
+.nav-links a:hover{color:#fff}
+
+.toolhead{background:var(--accent-dk);padding:52px 0 78px;position:relative;clip-path:polygon(0 0,100% 0,100% 88%,0 100%);margin-bottom:0}
+.toolhead .brand2{color:#fff;font-size:32px}
+.toolhead .brand2 small{display:block;font-family:Inter;font-size:14px;font-weight:500;color:#C7D3CD;margin-top:8px}
+.toolhead .pill{background:transparent;border:1.5px solid var(--gold);color:var(--gold);font-size:11px;font-weight:700;padding:8px 15px;letter-spacing:.04em;text-transform:uppercase}
+.toolhead .pill.green{background:var(--gold);color:var(--accent-dk);border:0;cursor:pointer}
+.libhero{background:var(--accent-dk);padding:52px 0 60px;clip-path:polygon(0 0,100% 0,100% 92%,0 100%)}
+.libhero .eyebrow{color:var(--gold)}
+.libhero h1{color:#fff}
+.libhero .lead{color:#C7D3CD}
+
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.docheader{border-left:4px solid var(--gold);padding-left:26px;margin-bottom:38px}
+
+.pagetabs.seg{display:inline-flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);padding:3px;margin-top:24px}
+.pagetabs.seg button{border:0;background:transparent;padding:9px 18px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;color:#C7D3CD}
+.pagetabs.seg button.on{background:var(--gold);color:var(--accent-dk)}
+
+.stripe{background:var(--gold)}
+.stripewrap{max-width:1120px;margin:0 auto;padding:24px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stripewrap .item{text-align:center;border-right:1.5px solid rgba(15,61,48,.22)}
+.stripewrap .item:last-child{border-right:0}
+.stripewrap .item b{font-family:Fraunces,serif;font-size:24px;color:var(--accent-dk);display:block;font-weight:700}
+.stripewrap .item span{font-size:10.5px;color:var(--accent-dk);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.stripe .item b{font-family:Fraunces,serif;color:var(--accent-dk)}
+.stripe .item span{color:var(--accent-dk)}
+
+.btn,.pill.green,a.btn{display:inline-flex;align-items:center;text-decoration:none;letter-spacing:.02em;text-transform:uppercase;font-weight:700;transition:transform .25s,box-shadow .25s;cursor:pointer;border:0}
+.btn.primary{background:var(--gold);color:var(--accent-dk);padding:14px 26px;font-size:13px}
+.btn.ghost{border:1.5px solid rgba(255,255,255,.4);color:#fff;background:transparent;padding:14px 26px;font-size:13px}
+.btn:hover,.pill.green:hover{transform:translateY(-3px);box-shadow:0 14px 26px -10px rgba(0,0,0,.4)}
+
+section{padding:0;background:transparent;border:0}
+.sechead{padding:56px 0 8px}
+h3{font-size:24px}
+.sub,.subh{color:var(--muted);font-size:14.5px}
+
+.card,.field,.profile,.card2{border-radius:var(--r)!important;border:1px solid var(--line);background:var(--card)}
+.card.best{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.card.sel{background:var(--accent-soft)}
+.tag{border-radius:0!important;background:var(--accent-dk)!important;color:#fff!important}
+.card .tag.none{background:var(--gold-dk)!important}
+
+.chip{border-radius:0!important;background:var(--accent-soft)!important;color:var(--accent-dk)!important;font-weight:700!important;text-transform:uppercase;letter-spacing:.03em;font-size:10.5px!important}
+.chip.warn{background:#F7E9D8!important;color:var(--gold-dk)!important}
+
+.profile summary::after{color:var(--muted);font-weight:300}
+.profile h4{color:var(--accent-dk);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11.5px}
+.profile .callout{border-radius:0!important;background:#F4F0E7!important;border-left:3px solid var(--gold)!important}
+.profile .callout b{color:var(--gold-dk)!important}
+.picon,.iwrap,.ti{border-radius:0!important;background:var(--accent-dk)!important}
+.picon .icn,.iwrap .icn,.ti .icn{stroke:#fff!important}
+.src.data{background:var(--accent-soft)!important;color:var(--accent-dk)!important;border-radius:0!important}
+.src.est{background:#F7E9D8!important;color:var(--gold-dk)!important;border-radius:0!important}
+.badge{border-radius:0!important}
+
+.field{border-radius:0!important;display:flex;gap:12px;align-items:flex-start;padding:14px 16px 14px 14px!important;border-width:1.5px!important}
+.ficon{width:32px;height:32px;background:#fff;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;box-shadow:4px 4px 0 -1px var(--accent);transition:box-shadow .45s ease}
+.ficon svg{width:16px;height:16px;stroke:var(--ink)}
+.fbody{flex:1;min-width:0}
+.field:focus-within{border-color:var(--accent)!important;box-shadow:none!important}
+.seg{border-radius:0!important}
+.seg button.on{border-radius:0!important;background:var(--accent)!important}
+
+.line.total{background:transparent;border-top:0;margin-top:0;padding-top:6px}
+.total-main{border-top:2px solid var(--ink)!important;margin-top:6px;padding-top:20px!important;padding-bottom:14px}
+.total-main .lbl{font-size:15px}
+.total-main .amt{color:var(--accent-dk);font-size:22px}
+.total-sub .amt{font-size:16px;color:var(--muted);font-weight:500}
+.bar i{background:var(--accent)!important}
+
+.assum>div,.pgrid>div,.toolcard{border-radius:0!important}
+.toolcard.c1{background:var(--green)!important}
+.toolcard.c2{background:var(--rust)!important}
+.toolcard.c3{background:var(--navy)!important}
+
+.footer2,.site-footer{background:var(--green-dk)!important;color:#8FA69B!important;border:0!important}
+.site-footer .fcol a,.site-footer .fcol h4,.site-footer .brand{color:#fff!important}
+.site-footer .fcol p,.site-footer .footbottom{color:#8FA69B!important}
+.site-footer .footbottom a{color:#8FA69B!important}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+.reveal-stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal-stagger.show>*{opacity:1;transform:translateY(0)}
+.reveal-stagger.show>*:nth-child(1){transition-delay:.04s}
+.reveal-stagger.show>*:nth-child(2){transition-delay:.12s}
+.reveal-stagger.show>*:nth-child(3){transition-delay:.2s}
+.reveal-stagger.show>*:nth-child(4){transition-delay:.28s}
+@media (prefers-reduced-motion:reduce){.reveal,.reveal-stagger>*{opacity:1!important;transform:none!important}}
+
+
+:root{--accent:var(--navy);--accent-dk:var(--navy-dk);--accent-soft:var(--navy-soft);}
+body.budget-mode{--accent:var(--green);--accent-dk:var(--green-dk);--accent-soft:var(--green-soft);}
+body{transition:background-color .5s ease}
+.toolhead,.pill.green,.pchip.on,.sitedit,.hero-panel::before,.total-main .amt,.chip,.src.data,.pcval,.gicon,.gicon svg,.sec-icon,.income-num,.pagetabs.seg button.on,.seg button.on{transition:background-color .45s ease,border-color .45s ease,color .45s ease,box-shadow .45s ease!important}
 </style>
 </head>
 <body>
 <header class="site-nav">
   <div class="navwrap">
-    <a class="brand" href="index.html" style="text-decoration:none">AwaamEd</a>
+    <a class="brand" href="index.html">AwaamEd</a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="calculator.html" class="active">Cost Calculator</a>
@@ -220,63 +432,75 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
     </nav>
   </div>
 </header>
-<div class="calctop">
+<div class="toolhead">
   <div class="wrap">
-  <div class="toolhead">
-    <div class="brand">Cost Calculator and Budget Planner<small>What will school really cost, from now until university?</small></div>
-    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      <span class="pill amber">Lahore &middot; founder-collected data &middot; 2026</span>
-      <button class="pill green" id="share">Copy link to this comparison</button>
-    </div>
+  <div class="brand2" style="color:#fff"><h1 style="font-size:32px;color:#fff">Cost Calculator and Budget Planner</h1><small style="display:block;color:#C7D3CD;margin-top:8px;font-size:14px">What will education really cost, from now until university?</small></div>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:22px">
+    <span class="pill">Lahore &middot; founder-collected data &middot; 2026</span>
+    <button class="pill green" id="share">Copy link to this comparison</button>
   </div>
-
   <div class="pagetabs seg" id="pageTabs">
     <button data-p="calc" class="on">Cost calculator</button>
     <button data-p="budget">Family budget planner</button>
   </div>
-
-    <div class="grid g4">
-    <div class="field"><label for="city">City</label><select id="city"><option>Lahore</option></select><div class="hint">More cities as data is collected</div></div>
-    <div class="field"><label for="tier">Type of school</label><select id="tier">
-      <option value="elite">Elite private</option><option value="mid" selected>Mid-range private</option><option value="low">Low-fee private</option><option value="govt">Government</option></select></div>
-    <div class="field"><label for="dist">Distance from home to school</label><div class="money"><input id="dist" type="number" min="0" step="1" value="8"><span>km</span></div></div>
-    <div class="field"><label for="mode">How the student travels</label><select id="mode">
-      <option value="van">School van</option><option value="car">Own car / driver</option><option value="ride" selected>Ride-hailing (InDrive, Uber)</option><option value="rick">Rickshaw</option><option value="bike">Motorbike</option><option value="walk">Walk / cycle</option></select></div>
-  </div>
-  <div class="grid g3" style="margin-top:14px">
-    <div class="field"><label for="tut">Subjects with private tuition</label><input id="tut" type="number" min="0" max="10" step="1" value="2"><div class="hint">Enter 0 if none</div></div>
-    <div class="field"><label for="income">Monthly household income</label><div class="money"><span>PKR</span><input id="income" type="number" min="0" step="5000" value="150000"></div><div class="hint">Only used to show cost as months of income</div></div>
-    <div class="field"><label>Show costs</label><div class="seg" id="view"><button data-v="month" class="on">Per month</button><button data-v="year">Per year</button><button data-v="total">Whole route</button></div></div>
-  </div>
   </div>
 </div>
 
-<div class="wrap">
-    <div id="calcView">
-  <div class="row"><h3>Your four routes to university</h3><span class="note">Tap a route to see and change every number</span></div>
-  <div class="cards grid g4" id="cards"></div>
+<div class="wrap" style="margin-top:-46px;position:relative;z-index:2">
+  <div class="situation">
+    <button class="sitbar" id="sitToggle" type="button">
+      <span class="sitlabel">Your situation</span>
+      <span class="sitsummary" id="sitSummary"></span>
+      <span class="sitedit" id="sitEditTxt">Edit &#9881;</span>
+    </button>
+    <div class="sitbody" id="sitBody">
+    <div class="grid g4">
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5S4.5 14.8 4.5 9.3A7.5 7.5 0 0 1 12 2a7.5 7.5 0 0 1 7.5 7.3c0 5.5-7.5 12.2-7.5 12.2Z"/><circle cx="12" cy="9.3" r="2.6"/></svg></span><div class="fbody"><label for="city">City</label><select id="city"><option>Lahore</option></select><div class="hint">More cities as data is collected</div></div></div>
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5 12 3l8 5.5"/><rect x="4" y="8.5" width="16" height="12.5" rx="1"/><line x1="8.5" y1="12.5" x2="8.5" y2="14.5"/><line x1="12" y1="12.5" x2="12" y2="14.5"/><line x1="15.5" y1="12.5" x2="15.5" y2="14.5"/></svg></span><div class="fbody"><label for="tier">Type of school</label><select id="tier">
+      <option value="elite">Elite private</option><option value="mid" selected>Mid-range private</option><option value="low">Low-fee private</option><option value="govt">Government</option></select></div></div>
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="18" r="2.3"/><path d="M8 6.5h6a4 4 0 0 1 4 4v3a4 4 0 0 1-4 4h-6" stroke-dasharray="2.5 3"/></svg></span><div class="fbody"><label for="dist">Distance from home to school</label><div class="money"><input id="dist" type="number" min="0" step="1" value="8"><span>km</span></div></div></div>
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 15.5 5.3 9.8A2 2 0 0 1 7.2 8.5h9.6a2 2 0 0 1 1.9 1.3l1.8 5.7"/><rect x="2.5" y="15.5" width="19" height="4.5" rx="1.3"/><circle cx="6.5" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="17.5" cy="20" r="1.4" fill="currentColor" stroke="none"/></svg></span><div class="fbody"><label for="mode">How the student travels</label><select id="mode">
+      <option value="van">School van</option><option value="car">Own car / driver</option><option value="ride" selected>Ride-hailing (InDrive, Uber)</option><option value="rick">Rickshaw</option><option value="bike">Motorbike</option><option value="walk">Walk / cycle</option></select></div></div>
+  </div>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.6-1.2-4-1.6-6.5-1.2v13.4c2.5-.4 4.9 0 6.5 1.2 1.6-1.2 4-1.6 6.5-1.2V4.3c-2.5-.4-4.9 0-6.5 1.2Z"/><line x1="12" y1="5.5" x2="12" y2="18.9"/></svg></span><div class="fbody"><label for="tut">Subjects with private tuition</label><input id="tut" type="number" min="0" max="10" step="1" value="2"><div class="hint">Enter 0 if none</div></div></div>
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg></span><div class="fbody"><label for="income">Monthly household income</label><div class="money"><span>PKR</span><input id="income" type="number" min="0" step="5000" value="150000"></div><div class="hint">Only used to show cost as months of income</div></div></div>
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/></svg></span><div class="fbody"><label>Show costs</label><div class="seg" id="view"><button data-v="month" class="on">Per month</button><button data-v="year">Per year</button><button data-v="total">Whole route</button></div></div></div>
+  </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+      <div id="calcView">
+  <div id="cards"></div>
 
   <section>
-    <div class="tabs" id="tabs"></div>
+    <div class="tabs" id="tabs" style="display:none"></div>
     <div id="lines"></div>
     <div class="legend"><span class="src data">Collected</span> from a real fee card or receipt &nbsp; <span class="src est">Estimate</span> to be verified &nbsp; <span class="src you">Yours</span> you changed it</div>
   </section>
+  </div>
   </div>
 
     <div id="budgetView" style="display:none">
   <div class="row"><h3>Your family budget blueprint</h3><span class="note">Based on your income and the selections above</span></div>
 
   <div class="grid g3">
-    <div class="field"><label for="essPct">Typical spending on rent, food & essentials</label>
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9h-9Z" fill="currentColor" stroke="none"/></svg></span><div class="fbody"><label for="essPct">Typical spending on rent, food &amp; essentials</label>
       <div class="money"><input id="essPct" type="number" min="0" max="95" step="1" value="60"><span>% of income</span></div>
-      <div class="hint" id="essHint">A common guideline for this income level — adjust to your household</div></div>
-    <div class="field"><label for="yearsUntil">Years until this route begins</label><input id="yearsUntil" type="number" min="0" max="15" step="1" value="0"><div class="hint">0 if the student is already in it</div></div>
-    <div class="field"><label>Print or save this blueprint</label><button class="pill green" id="printBtn" style="width:100%;margin-top:2px">Print / save as PDF</button></div>
+      <div class="hint" id="essHint">A common guideline for this income level — adjust to your household</div></div></div>
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.5" r="9"/><polyline points="12,7 12,12.5 16,15"/><line x1="9" y1="2" x2="15" y2="2"/></svg></span><div class="fbody"><label for="yearsUntil">Years until this route begins</label><input id="yearsUntil" type="number" min="0" max="15" step="1" value="0"><div class="hint">0 if the student is already in it</div></div></div>
+    <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8.5" width="14" height="7.5" rx="1"/><path d="M7 8.5V4h10v4.5"/><path d="M7 15.5V20h10v-4.5"/></svg></span><div class="fbody"><label>Print or save this blueprint</label><button class="pill green" id="printBtn" style="width:100%;margin-top:2px">Print / save as PDF</button></div></div>
   </div>
 
-  <section>
-    <h3>Where your income goes</h3>
+  <section class="reveal">
+    <span class="eyebrow2">Step 1</span>
+    <div class="sechead"><span class="sec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9h-9Z" fill="currentColor" stroke="none"/></svg></span><h3>Where your income goes</h3></div>
     <div class="sub">Monthly household income: PKR <span id="incLbl"></span></div>
+    <div class="income-hero">
+      <div class="income-num" id="restHero"></div>
+      <div class="income-sub">left each month for education, savings, and everything else</div>
+    </div>
     <div class="split" id="splitBar"></div>
     <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px">
       <span>Essentials — PKR <span id="essAmt"></span></span>
@@ -284,16 +508,18 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
     </div>
   </section>
 
-  <section>
-    <h3>Which route fits your budget</h3>
+  <section class="reveal">
+    <span class="eyebrow2">Step 2</span>
+    <div class="sechead"><span class="sec-icon b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><h3>Which route fits your budget</h3></div>
     <div class="sub">Comfortable = under 20% of income · Tight = 20–35% · Stretch = 35–50% · Not feasible = over 50%, without other income or savings</div>
-    <div id="budgetRows"></div>
+    <div id="budgetRows" class="reveal-stagger"></div>
   </section>
 
-  <section>
-    <h3>Monthly saving needed, starting now</h3>
+  <section class="reveal">
+    <span class="eyebrow2">Step 3</span>
+    <div class="sechead"><span class="sec-icon c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="14" rx="3.4" ry="2.1"/><ellipse cx="12" cy="11" rx="4.6" ry="2.8"/><ellipse cx="12" cy="8" rx="5.8" ry="3.5"/></svg></span><h3>Monthly saving needed, starting now</h3></div>
     <div class="sub" id="saveSub"></div>
-    <div id="saveRows"></div>
+    <div id="saveRows" class="reveal-stagger"></div>
     <p class="note" style="margin-top:12px">This is a general planning guide, not financial advice — it doesn't account for existing savings, loans, or scholarships. Speak with a financial advisor for a plan specific to your situation.</p>
   </section>
   </div>
@@ -301,10 +527,10 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
     <section>
     <details><summary>Settings and assumptions</summary>
       <div class="grid g4" style="margin-top:14px">
-        <div class="field"><label for="usd">USD to PKR rate</label><input id="usd" type="number" step="1" value="280"><div class="hint">Cambridge and GED fees follow the dollar</div></div>
-        <div class="field"><label for="infl">Fee inflation per year (%)</label><input id="infl" type="number" step="0.5" min="0" value="12"></div>
-        <div class="field"><label for="opp">Income a student could earn instead (PKR/yr)</label><input id="opp" type="number" step="10000" min="0" value="0"><div class="hint">0 = ignore</div></div>
-        <div class="field"><label for="days">School days per year</label><input id="days" type="number" step="5" min="0" value="180"></div>
+        <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h11l-3-3"/><path d="M18 16H7l3 3"/></svg></span><div class="fbody"><label for="usd">USD to PKR rate</label><input id="usd" type="number" step="1" value="280"><div class="hint">Cambridge and GED fees follow the dollar</div></div></div>
+        <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,17 9,10.5 13.5,14.5 21,6"/><polyline points="15,6 21,6 21,12"/></svg></span><div class="fbody"><label for="infl">Fee inflation per year (%)</label><input id="infl" type="number" step="0.5" min="0" value="12"></div></div>
+        <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="1.5"/><path d="M8 7.5V5.5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="12.5" x2="21" y2="12.5"/></svg></span><div class="fbody"><label for="opp">Income a student could earn instead (PKR/yr)</label><input id="opp" type="number" step="10000" min="0" value="0"><div class="hint">0 = ignore</div></div></div>
+        <div class="field"><span class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="16" rx="1.5"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="16" y1="2.5" x2="16" y2="6.5"/></svg></span><div class="fbody"><label for="days">School days per year</label><input id="days" type="number" step="5" min="0" value="180"></div></div>
       </div>
       <p class="note" style="margin-top:14px">Whole-route cost adds each year's cost grown by inflation. Exam and registration fees are one-off and not inflated. Transport = distance × 2 trips × school days × the per-km rate of your mode (school van is a flat monthly fee). Tuition scholarships on O-Level or Matric grades can cut A-Level and FSc school fees; lower the fee line to reflect an offer.</p>
     </details>
@@ -321,19 +547,45 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
         <a href="calculator.html">Cost Calculator</a>
         <a href="calculator.html">Family Budget Planner</a>
         <a href="library.html">Pathway Library</a>
-      <a href="scholarships.html">Scholarships &amp; Aid</a>
-      <a href="inflation.html">Inflation Tracker</a>
+        <a href="scholarships.html">Scholarships &amp; Aid</a>
+        <a href="inflation.html">Inflation Tracker</a>
         <a href="about.html">Data &amp; Methodology</a>
       </div>
       <div class="fcol"><h4>Project</h4>
-        <a href="https://github.com/alitariq888/AwaamEd" target="_blank" rel="noopener">GitHub repository</a>
         <a href="about.html">Status: Live in Lahore</a>
       </div>
     </div>
     <div class="footbottom">AwaamEd is an open-access, non-commercial project. Figures marked Collected come from actual fee cards, exam-board schedules and family interviews in Lahore, 2026; Estimates are flagged until verified. Republished yearly as the AwaamEd Education Inflation Report. Spotted a wrong number? <a href="about.html">Tell us</a>.</div>
   </div>
 </footer>
+
 <script>
+(function(){
+  const revealEls = Array.from(document.querySelectorAll(".reveal, .reveal-stagger"));
+  function inView(el){
+    const r = el.getBoundingClientRect();
+    return r.top < (window.innerHeight - 40) && r.bottom > 0;
+  }
+  function checkScroll(){
+    revealEls.forEach(el=>{ if(!el.classList.contains("show") && inView(el)) el.classList.add("show"); });
+  }
+  window.__checkReveal = checkScroll;
+  if("IntersectionObserver" in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("show"); io.unobserve(e.target); } });
+    }, {threshold:0.05, rootMargin:"0px 0px -40px 0px"});
+    revealEls.forEach(el=>io.observe(el));
+  }
+  window.addEventListener("scroll", checkScroll, {passive:true});
+  window.addEventListener("resize", checkScroll);
+  checkScroll();
+})();
+const _nav = document.querySelector(".site-nav");
+if(_nav) window.addEventListener("scroll", ()=>{ _nav.classList.toggle("scrolled", window.scrollY>10); });
+</script>
+
+<script>
+
 /* ==================== DATA (edit here) ====================
    Amounts in PKR unless usd:true. unit: month | year | once | subj_once (per subject, one-off)
    src: data (collected) | est (estimate).  tier: values per school type.       */
@@ -435,6 +687,7 @@ function renderBudget(){
   $("#incLbl").textContent=fmt(income);
   $("#essAmt").textContent=fmt(essAmt);
   $("#restAmt").textContent=fmt(restAmt);
+  $("#restHero").textContent="PKR "+fmt(restAmt);
   $("#essHint").textContent=income>0?`Typical for households near PKR ${fmt(income)}/month — adjust to your household`:"Enter your income above to see a suggested split";
   $("#splitBar").innerHTML=`<div class="ess" style="width:${essPct}%">${essPct}%</div><div class="rest" style="width:${100-essPct}%">${100-essPct}%</div>`;
 
@@ -464,11 +717,27 @@ $("#essPct").addEventListener("input",()=>{essTouched=true;renderBudget()});
 $("#yearsUntil").addEventListener("input",renderBudget);
 $("#printBtn").addEventListener("click",()=>window.print());
 
+$("#sitToggle").addEventListener("click",()=>{
+  const p=document.querySelector(".situation");
+  const open=p.classList.toggle("open");
+  $("#sitEditTxt").textContent=open?"Done":"Edit \u2699";
+});
+
 function showPage(name){
   document.querySelectorAll("#pageTabs button").forEach(x=>x.classList.toggle("on",x.dataset.p===name));
-  $("#calcView").style.display=name==="calc"?"block":"none";
-  $("#budgetView").style.display=name==="budget"?"block":"none";
+  document.body.classList.toggle("budget-mode", name==="budget");
+  const showEl=name==="calc"?$("#calcView"):$("#budgetView");
+  const hideEl=name==="calc"?$("#budgetView"):$("#calcView");
   if(name==="budget") renderBudget();
+  hideEl.style.opacity="0";
+  hideEl.style.transform="translateY(-8px)";
+  setTimeout(()=>{
+    hideEl.style.display="none";
+    showEl.style.display="block";
+    showEl.style.opacity="0";
+    showEl.style.transform="translateY(10px)";
+    requestAnimationFrame(()=>{ showEl.style.opacity="1"; showEl.style.transform="translateY(0)"; if(window.__checkReveal) window.__checkReveal(); });
+  },300);
 }
 document.querySelectorAll("#pageTabs button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.p)));
 
@@ -483,37 +752,69 @@ function render(){
   const c=ctx();
   const R=PATHWAYS.map(p=>({p,r:compute(p,c)}));
   const best=Math.min(...R.map(x=>x.r.total)), max=Math.max(...R.map(x=>x.r.total))||1;
-  $("#cards").innerHTML=R.map(({p,r})=>{
-    const show=S.view==="month"?r.perMonth:S.view==="year"?r.perYear:r.total;
-    const lbl=S.view==="month"?"per month":S.view==="year"?"per year":"whole route";
-    const mo=c.income>0?r.total/c.income:null;
-    return`<div class="card ${r.total===best?"best":""} ${S.sel===p.id?"sel":""}" data-id="${p.id}">
-      ${r.total===best?`<span class="tag">Lowest</span>`:""}
-      <h2>${p.short}</h2><div class="yrs">${p.years} year${p.years>1?"s":""} · ${p.blurb}</div>
-      <div class="tot">${fmt(show)}<small>PKR ${lbl}</small></div>
-      <div class="mo">${mo!==null?`<b>${mo.toFixed(1)}</b> months of your income in total`:""}</div>
-      <div class="bar"><i style="width:${Math.max(4,r.total/max*100)}%"></i></div>
-      <div class="sub">${fmt(r.total)} over ${p.years} yr${p.years>1?"s":""}${r.opp?` · incl. ${fmt(r.opp)} forgone income`:""}</div></div>`}).join("");
-  document.querySelectorAll(".card").forEach(el=>el.onclick=()=>{S.sel=el.dataset.id;render()});
+
+  // update the collapsed "your situation" summary line
+  const tierNames={elite:"Elite private",mid:"Mid-range private",low:"Low-fee private",govt:"Government"};
+  const modeText=$("#mode").selectedOptions[0].text;
+  $("#sitSummary").textContent=`${$("#city").value} · ${tierNames[c.tier]} · ${c.dist} km by ${modeText} · ${c.tut} tuition subject${c.tut===1?"":"s"} · PKR ${fmt(c.income)}/mo income`;
+
+  // compact pathway chip list
+  $("#cards").innerHTML=`<div class="dashwrap">
+    <div class="chipcol">${R.map(({p,r})=>{
+      const show=S.view==="month"?r.perMonth:S.view==="year"?r.perYear:r.total;
+      return`<div class="pchip ${S.sel===p.id?"on":""}" data-id="${p.id}">
+        <div class="pcname">${p.short}${r.total===best?`<span class="pcbest">Lowest cost</span>`:""}</div>
+        <div class="pcval">${fmt(show)}</div></div>`;
+    }).join("")}</div>
+    <div class="hero-panel" id="heroPanel"></div>
+  </div>`;
+  document.querySelectorAll(".pchip").forEach(el=>el.onclick=()=>{S.sel=el.dataset.id;render()});
+
+  // big hero number for the selected pathway
+  const sel=R.find(x=>x.p.id===S.sel);
+  const show=S.view==="month"?sel.r.perMonth:S.view==="year"?sel.r.perYear:sel.r.total;
+  const lbl=S.view==="month"?"per month":S.view==="year"?"per year":"whole route";
+  const mo=c.income>0?sel.r.total/c.income:null;
+  $("#heroPanel").innerHTML=`
+    <div class="hero-eyebrow">${sel.p.years} year${sel.p.years>1?"s":""} route</div>
+    <h2 class="hero-name">${sel.p.name}</h2>
+    <div class="hero-num">${fmt(show)}<small>PKR ${lbl}</small></div>
+    <div class="hero-sub">${mo!==null?`<b>${mo.toFixed(1)}</b> months of your income in total`:"Enter your income above to see this in months of income"}</div>
+    <div class="hero-bar"><i style="width:${Math.max(4,sel.r.total/max*100)}%"></i></div>
+    <div class="hero-foot">${fmt(sel.r.total)} over ${sel.p.years} yr${sel.p.years>1?"s":""}${sel.r.opp?` · incl. ${fmt(sel.r.opp)} forgone income`:""}${sel.r.total===best?" · the lowest-cost route of the four":""}</div>`;
 
   $("#tabs").innerHTML=PATHWAYS.map(p=>`<button class="${S.sel===p.id?"on":""}" data-id="${p.id}">${p.short}</button>`).join("");
   document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{S.sel=b.dataset.id;render()});
 
   const p=PATHWAYS.find(x=>x.id===S.sel), r=compute(p,c);
   let h=`<h3>${p.name}</h3><div class="sub">${TIER_NAMES[c.tier]} · ${c.dist} km by ${$("#mode").selectedOptions[0].text.toLowerCase()} · ${c.tut} tuition subject${c.tut===1?"":"s"} &nbsp; <button class="reset" id="reset">Reset my changes</button></div>`;
-  let g="";
-  for(const it of p.items){
-    if(it.g!==g){g=it.g;h+=`<div class="group">${g}</div>`}
-    const key=p.id+"."+it.k, edited=key in S.over, v=value(p,it,c), src=edited?"you":srcOf(it,c);
-    const unit=(it.usd?"USD ":"PKR ")+({month:"/ month",year:"/ year",once:"one-off"})[it.unit]+(it.tutor?" × "+c.tut:"");
-    const a=annualPKR(p,it,c,v), rt=a.once!==undefined?a.once:a.yearly*a.yrs;
-    h+=`<div class="line"><div class="lbl">${it.l}${it.sub||it.note?`<small>${it.sub||""}${it.sub&&it.note?" · ":""}${it.note||""}</small>`:""}</div>
-      <span class="src ${src}">${src==="data"?"Collected":src==="est"?"Estimate":"Yours"}</span>
-      <div class="amt"><input type="number" min="0" data-key="${key}" value="${Math.round(v)}" class="${edited?"edited":""}"><span class="unit">${unit}<br><span style="font-size:11px">= ${fmt(rt)} route</span></span></div></div>`;
-  }
-  if(c.opp) h+=`<div class="line"><div class="lbl">Income given up while studying<small>${fmt(c.opp)} × ${p.years} years</small></div><span class="src est">Setting</span><div class="amt"><span class="unit" style="width:auto">= ${fmt(r.opp)} route</span></div></div>`;
-  h+=`<div class="line total"><div class="lbl">Whole route, with ${(c.infl*100).toFixed(1)}% yearly inflation</div><span></span><div class="amt">PKR ${fmt(r.total)}</div></div>
-      <div class="line total" style="padding-top:0"><div class="lbl" style="font-weight:400;color:var(--muted)">That is about</div><span></span><div class="amt" style="font-weight:500">PKR ${fmt(r.perMonth)} / month</div></div>`;
+  const CAT_ICON={
+    "School":'<path d="M4 8.5 12 3l8 5.5"/><rect x="4" y="8.5" width="16" height="12.5" rx="1"/><line x1="8.5" y1="12.5" x2="8.5" y2="14.5"/><line x1="12" y1="12.5" x2="12" y2="14.5"/><line x1="15.5" y1="12.5" x2="15.5" y2="14.5"/>',
+    "Exams":'<path d="M6 2.5h9l3.5 3.5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M15 2.5V6h3.5"/><line x1="7.5" y1="12" x2="15.5" y2="12"/><line x1="7.5" y1="15.5" x2="15.5" y2="15.5"/>',
+    "Tuition":'<path d="M12 5.5c-1.6-1.2-4-1.6-6.5-1.2v13.4c2.5-.4 4.9 0 6.5 1.2 1.6-1.2 4-1.6 6.5-1.2V4.3c-2.5-.4-4.9 0-6.5 1.2Z"/><line x1="12" y1="5.5" x2="12" y2="18.9"/>',
+    "Getting there":'<path d="M3.5 15.5 5.3 9.8A2 2 0 0 1 7.2 8.5h9.6a2 2 0 0 1 1.9 1.3l1.8 5.7"/><rect x="2.5" y="15.5" width="19" height="4.5" rx="1.3"/><circle cx="6.5" cy="20" r="1.4" fill="currentColor" stroke="none"/><circle cx="17.5" cy="20" r="1.4" fill="currentColor" stroke="none"/>',
+    "Other":'<circle cx="12" cy="12" r="9"/><line x1="12" y1="7.5" x2="12" y2="12.5"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/>'
+  };
+  // group items by category, in first-seen order
+  const groups=[]; const byG={};
+  for(const it of p.items){ if(!byG[it.g]){byG[it.g]=[]; groups.push(it.g);} byG[it.g].push(it); }
+  groups.forEach((g,gi)=>{
+    let gtotal=0;
+    let lines="";
+    for(const it of byG[g]){
+      const key=p.id+"."+it.k, edited=key in S.over, v=value(p,it,c), src=edited?"you":srcOf(it,c);
+      const unit=(it.usd?"USD ":"PKR ")+({month:"/ month",year:"/ year",once:"one-off"})[it.unit]+(it.tutor?" × "+c.tut:"");
+      const a=annualPKR(p,it,c,v), rt=a.once!==undefined?a.once:a.yearly*a.yrs;
+      gtotal+=rt;
+      lines+=`<div class="line"><div class="lbl">${it.l}${it.sub||it.note?`<small>${it.sub||""}${it.sub&&it.note?" · ":""}${it.note||""}</small>`:""}</div>
+        <span class="src ${src}">${src==="data"?"Collected":src==="est"?"Estimate":"Yours"}</span>
+        <div class="amt"><input type="number" min="0" data-key="${key}" value="${Math.round(v)}" class="${edited?"edited":""}"><span class="unit">${unit}<br><span style="font-size:11px">= ${fmt(rt)} route</span></span></div></div>`;
+    }
+    h+=`<details class="catgroup" ${gi===0?"open":""}><summary><span class="ghead"><span class="gicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${CAT_ICON[g]||""}</svg></span>${g}</span><span class="gtotal">${fmt(gtotal)} route</span></summary><div class="gbody">${lines}</div></details>`;
+  });
+  if(c.opp) h+=`<div class="line" style="padding-left:2px"><div class="lbl">Income given up while studying<small>${fmt(c.opp)} × ${p.years} years</small></div><span class="src est">Setting</span><div class="amt"><span class="unit" style="width:auto">= ${fmt(r.opp)} route</span></div></div>`;
+  h+=`<div class="line total total-main"><div class="lbl">Whole route, with ${(c.infl*100).toFixed(1)}% yearly inflation</div><span></span><div class="amt">PKR ${fmt(r.total)}</div></div>
+      <div class="line total total-sub"><div class="lbl" style="font-weight:400;color:var(--muted)">That is about</div><span></span><div class="amt">PKR ${fmt(r.perMonth)} / month</div></div>`;
   $("#lines").innerHTML=h;
   document.querySelectorAll("#lines input").forEach(i=>i.addEventListener("change",e=>{S.over[e.target.dataset.key]=+e.target.value||0;render()}));
   $("#reset").onclick=()=>{for(const k in S.over) if(k.startsWith(p.id+".")) delete S.over[k];render()};
@@ -530,6 +831,7 @@ function writeHash(){const h=new URLSearchParams({tier:$("#tier").value,dist:$("
   if(h.get("view")){S.view=h.get("view");document.querySelectorAll("#view button").forEach(x=>x.classList.toggle("on",x.dataset.v===S.view))}})();
 $("#share").onclick=async()=>{writeHash();try{await navigator.clipboard.writeText(location.href);$("#share").textContent="Link copied"}catch{prompt("Copy this link:",location.href)}setTimeout(()=>$("#share").textContent="Copy link to this comparison",2000)};
 render();
+
 </script>
 </body>
 </html>
