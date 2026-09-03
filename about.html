@@ -4,6 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AwaamEd · Data and Methodology</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<meta name="description" content="How AwaamEd collects, verifies, and sources every cost figure on the site — the difference between Collected and Estimate, and how totals are calculated.">
+<link rel="canonical" href="https://awaamed.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AwaamEd">
+<meta property="og:title" content="Data and Methodology">
+<meta property="og:description" content="How AwaamEd collects, verifies, and sources every cost figure on the site — the difference between Collected and Estimate, and how totals are calculated.">
+<meta property="og:url" content="https://awaamed.com/about.html">
+<meta property="og:image" content="https://awaamed.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Data and Methodology">
+<meta name="twitter:description" content="How AwaamEd collects, verifies, and sources every cost figure on the site — the difference between Collected and Estimate, and how totals are calculated.">
+<meta name="twitter:image" content="https://awaamed.com/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -239,17 +257,30 @@ footer{font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6}footer 
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;font-size:16px;line-height:1.5}
 h1,h2,h3{font-family:Fraunces,serif;font-weight:700;margin:0;letter-spacing:-.015em}
 button,select,input{font:inherit;color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 28px}
 a{color:inherit}
 
-.site-nav{background:var(--green-dk);padding:18px 0;position:sticky;top:0;z-index:50;transition:box-shadow .3s,padding .3s}
-.site-nav.scrolled{box-shadow:0 8px 24px -12px rgba(0,0,0,.4);padding:12px 0}
+.site-nav{background:var(--green-dk);padding:18px 0;position:sticky;top:0;z-index:50;transition:box-shadow .3s}
+.site-nav.scrolled{box-shadow:0 8px 24px -12px rgba(0,0,0,.4)}
 .navwrap{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 .brand{font-family:Fraunces,serif;font-size:21px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:-.01em}
 .nav-links{display:flex;flex-wrap:wrap;gap:0}
 .nav-links a{color:#9FB6AC;text-decoration:none;font-size:13px;font-weight:600;margin-left:24px;text-transform:uppercase;letter-spacing:.04em;padding-bottom:4px;border-bottom:2px solid transparent}
 .nav-links a.active{color:#fff;border-bottom-color:var(--gold)}
 .nav-links a:hover{color:#fff}
+.menubtn{display:flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--gold);color:var(--gold);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:9px 16px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+.menubtn:hover{background:var(--gold);color:var(--green-dk)}
+.menubtn svg{stroke:currentColor}
+.menuwrap{position:relative}
+.menudrop{position:absolute;top:calc(100% + 16px);right:0;background:#fff;border:2px solid var(--ink);box-shadow:7px 7px 0 -1px var(--gold);min-width:260px;padding:10px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .22s ease,transform .22s ease,visibility .22s;z-index:60}
+.menudrop.open{opacity:1;visibility:visible;transform:translateY(0)}
+.menutitle{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:8px 12px 10px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.menudrop a{display:flex;align-items:center;gap:12px;padding:11px 12px;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none}
+.menudrop a:hover{background:var(--bg)}
+.menudrop a.active{color:var(--accent-dk);background:var(--accent-soft)}
+.menuicon{width:30px;height:30px;flex-shrink:0;background:var(--card);border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 -1px var(--accent)}
+.menuicon svg{width:15px;height:15px;stroke:var(--ink)}
+.menudrop a.active .menuicon{box-shadow:3px 3px 0 -1px var(--gold)}
 
 .toolhead{background:var(--accent-dk);padding:52px 0 78px;position:relative;clip-path:polygon(0 0,100% 0,100% 88%,0 100%);margin-bottom:0}
 .toolhead .brand2{color:#fff;font-size:32px}
@@ -341,15 +372,27 @@ h3{font-size:24px}
 <body>
 <header class="site-nav">
   <div class="navwrap">
-    <a class="brand" href="index.html">AwaamEd</a>
+    <a class="brand" href="index.html">Awaam<span style="color:var(--gold)">Ed</span></a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="calculator.html">Cost Calculator</a>
-      <a href="library.html">Pathway Library</a>
-      <a href="scholarships.html">Scholarships &amp; Aid</a>
-      <a href="inflation.html">Inflation Tracker</a>
-      <a href="about.html" class="active">Data &amp; Methodology</a>
+      <a href="library.html">Pathways</a>
+      <a href="scholarships.html">Scholarships</a>
+      <a href="inflation.html">Inflation</a>
+      <a href="about.html" class="active">Data</a>
     </nav>
+    <div class="menuwrap">
+    <button class="menubtn" type="button" id="menuBtn" aria-expanded="false" aria-controls="menuDrop"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Menu</button>
+    <div class="menudrop" id="menuDrop">
+      <div class="menutitle">Navigate</div>
+      <a href="index.html"><span class="menuicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 9.5V20h12V9.5"/></svg></span>Home</a>
+      <a href="calculator.html"><span class="menuicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2.5" width="16" height="19" rx="1"/><line x1="7" y1="6.5" x2="17" y2="6.5"/><circle cx="7.5" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="11" r="1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="11" r="1" fill="currentColor" stroke="none"/></svg></span>Cost Calculator</a>
+      <a href="library.html"><span class="menuicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5c-1.6-1.2-4-1.6-6.5-1.2v13.4c2.5-.4 4.9 0 6.5 1.2 1.6-1.2 4-1.6 6.5-1.2V4.3c-2.5-.4-4.9 0-6.5 1.2Z"/><line x1="12" y1="5.5" x2="12" y2="18.9"/></svg></span>Pathway Library</a>
+      <a href="scholarships.html"><span class="menuicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 22 8l-10 5L2 8Z"/><path d="M6 10.3V15c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.7"/></svg></span>Scholarships &amp; Aid</a>
+      <a href="inflation.html"><span class="menuicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,17 9,10.5 13.5,14.5 21,6"/><polyline points="15,6 21,6 21,12"/></svg></span>Inflation Tracker</a>
+      <a href="about.html" class="active"><span class="menuicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.5h9l3.5 3.5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1Z"/><path d="M15 2.5V6h3.5"/><line x1="7.5" y1="12" x2="15.5" y2="12"/></svg></span>Data &amp; Methodology</a>
+    </div>
+  </div>
   </div>
 </header>
 <div class="wrap article" style="padding-top:56px">
@@ -400,10 +443,10 @@ h3{font-size:24px}
       <div class="fcol"><h4>Explore</h4>
         <a href="calculator.html">Cost Calculator</a>
         <a href="calculator.html">Family Budget Planner</a>
-        <a href="library.html">Pathway Library</a>
-        <a href="scholarships.html">Scholarships &amp; Aid</a>
-        <a href="inflation.html">Inflation Tracker</a>
-        <a href="about.html">Data &amp; Methodology</a>
+        <a href="library.html">Pathways</a>
+        <a href="scholarships.html">Scholarships</a>
+        <a href="inflation.html">Inflation</a>
+        <a href="about.html">Data</a>
       </div>
       <div class="fcol"><h4>Project</h4>
         <a href="about.html">Status: Live in Lahore</a>
@@ -420,6 +463,15 @@ const io = new IntersectionObserver((entries)=>{
 document.querySelectorAll(".reveal, .reveal-stagger").forEach(el=>io.observe(el));
 const _nav = document.querySelector(".site-nav");
 if(_nav) window.addEventListener("scroll", ()=>{ _nav.classList.toggle("scrolled", window.scrollY>10); });
+(function(){
+  const btn=document.getElementById("menuBtn"), drop=document.getElementById("menuDrop");
+  if(!btn||!drop) return;
+  function close(){ drop.classList.remove("open"); btn.setAttribute("aria-expanded","false"); }
+  function open_(){ drop.classList.add("open"); btn.setAttribute("aria-expanded","true"); }
+  btn.addEventListener("click",(e)=>{ e.stopPropagation(); drop.classList.contains("open") ? close() : open_(); });
+  document.addEventListener("click",(e)=>{ if(!drop.contains(e.target) && e.target!==btn) close(); });
+  document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") close(); });
+})();
 </script>
 
 
